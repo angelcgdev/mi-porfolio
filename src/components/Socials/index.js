@@ -1,8 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-import data from "../../yourData";
-import yourData from "../../yourData";
+import yourData from "../../../yourData";
 
 const Socials = ({ className }) => {
   return (
