@@ -1,12 +1,12 @@
 import { useFormik } from 'formik'
 import React from 'react'
-import data from '../../../yourData'
-import Button from '../../components/Button'
-import { InputGroup } from '../../components/InputGroup'
-import { SectionDescription } from '../../components/Section/SectionDescription'
-import { SectionTitle } from '../../components/Section/SectionTitle'
-import { SectionWrapper } from '../../components/Section/SectionWrapper'
-import Socials from '../../components/Socials'
+import data from '../../yourData'
+import Button from '../components/Button'
+import { InputGroup } from '../components/InputGroup'
+import { SectionDescription } from '../components/Section/SectionDescription'
+import { SectionTitle } from '../components/Section/SectionTitle'
+import { SectionWrapper } from '../components/Section/SectionWrapper'
+import Socials from '../components/Socials'
 
 export const ContactSection = ({contactRef}) => {
 

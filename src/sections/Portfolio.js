@@ -1,8 +1,8 @@
 import React from 'react'
-import data from '../../../yourData'
-import { SectionTitle } from '../../components/Section/SectionTitle'
-import { SectionWrapper } from '../../components/Section/SectionWrapper'
-import WorkCard from '../../components/WorkCard'
+import data from '../../yourData'
+import { SectionTitle } from '../components/Section/SectionTitle'
+import { SectionWrapper } from '../components/Section/SectionWrapper'
+import WorkCard from '../components/WorkCard'
 
 export const PortfolioSection = ({portRef}) => {
   return (

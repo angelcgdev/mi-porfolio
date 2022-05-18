@@ -1,21 +1,12 @@
 import { useRef } from "react";
-import Link from "next/link";
 import Header from "../components/Header";
-import Socials from "../components/Socials";
-import WorkCard from "../components/WorkCard";
 
-// Local Data
-import data from "../../yourData";
-import { InputGroup } from "../components/InputGroup";
-import Button from "../components/Button";
 import { useRouter } from "next/router";
-import { SectionTitle } from "../components/Section/SectionTitle";
-import { SectionDescription } from "../components/Section/SectionDescription";
+import { Welcome } from "../sections/Welcome";
+import { PortfolioSection } from "../sections/Portfolio";
+import { ContactSection } from "../sections/Contact";
+import { About } from "../sections/About";
 import { Footer } from "../components/Footer";
-import { SectionWrapper } from "../components/Section/SectionWrapper";
-import { HomeSection } from "../sections/home";
-import { PortfolioSection } from "../sections/portfolio";
-import { ContactSection } from "../sections/contact";
 
 export default function Home() {
   const router = useRouter();
@@ -75,11 +66,8 @@ export default function Home() {
           handleAboutScroll={handleAboutScroll}
           handleContactScroll={handleContactScroll}
         />
-        <HomeSection/>
-        <SectionWrapper sRef={aboutRef}>
-          <SectionTitle>About.</SectionTitle>
-          <SectionDescription>{data.aboutpara}</SectionDescription>
-        </SectionWrapper>
+        <Welcome/>
+        <About aboutRef={aboutRef}/>
         <PortfolioSection portRef={portfolioRef}/>
         <ContactSection contactRef={contactRef}/>
         <Footer/>
