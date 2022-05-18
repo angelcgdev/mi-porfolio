@@ -1,10 +1,11 @@
 import React from "react";
 
-const Button = ({ children, kind, onClick, className}) => {
+const Button = ({ children, bType,  kind, onClick, className}) => {
   if (kind === "primary") {
     return (
       <button
         onClick={onClick}
+        type={bType}
         className={`p-2 rounded-lg text-white bg-blue-700 hover:bg-blue-800 first:ml-0 ${className}`}>
         {children}
       </button>

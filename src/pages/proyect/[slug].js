@@ -6,7 +6,6 @@ import { Footer } from '../../components/Footer';
 import { SectionTitle } from '../../components/Section/SectionTitle';
 import { SectionDescription } from '../../components/Section/SectionDescription';
 export default function Proyect (props) {
-  console.log(props);
   const {proyect} = props;
   const router = useRouter();
   const handleHome = ()=>{
