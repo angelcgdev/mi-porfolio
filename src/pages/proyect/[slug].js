@@ -6,6 +6,8 @@ import { Footer } from '../../components/Footer';
 import { SectionTitle } from '../../components/Section/SectionTitle';
 import { SectionDescription } from '../../components/Section/SectionDescription';
 import { loadProyect } from '../../lib/load-proyect';
+import Head from 'next/head'
+
 export default function Proyect (props) {
 
   let proyect = props.proyect;
@@ -23,6 +25,10 @@ export default function Proyect (props) {
 
   return (
     <>
+      <Head>
+        <title>{proyect.title} | AngelCgDev</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="sticky  top-0 z-10 bg-white flex justify-center">
         <div className='container'>
           <NavBar className='mx-8 mb-4' goHome={handleHome}/>

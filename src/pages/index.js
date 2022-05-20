@@ -7,6 +7,7 @@ import { PortfolioSection } from "../sections/Portfolio";
 import { ContactSection } from "../sections/Contact";
 import { About } from "../sections/About";
 import { Footer } from "../components/Footer";
+import Head from 'next/head'
 
 export default function Home() {
   const router = useRouter();
@@ -57,21 +58,27 @@ export default function Home() {
 
 
   return (
-    <div className="container mx-auto mb-10">
-      <div className= "mx-8">
-        <Header
-          navRef={navRef}
-          handleTopScroll={handleTopScroll}
-          handleWorkScroll={handlePortfolioScroll}
-          handleAboutScroll={handleAboutScroll}
-          handleContactScroll={handleContactScroll}
-        />
-        <Welcome/>
-        <About aboutRef={aboutRef}/>
-        <PortfolioSection portRef={portfolioRef}/>
-        <ContactSection contactRef={contactRef}/>
-        <Footer/>
+    <>
+      <Head>
+        <title>AngelCgDev</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className="container mx-auto mb-10">
+        <div className= "mx-8">
+          <Header
+            navRef={navRef}
+            handleTopScroll={handleTopScroll}
+            handleWorkScroll={handlePortfolioScroll}
+            handleAboutScroll={handleAboutScroll}
+            handleContactScroll={handleContactScroll}
+          />
+          <Welcome/>
+          <About aboutRef={aboutRef}/>
+          <PortfolioSection portRef={portfolioRef}/>
+          <ContactSection contactRef={contactRef}/>
+          <Footer/>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
