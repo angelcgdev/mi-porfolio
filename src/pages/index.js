@@ -61,7 +61,7 @@ export default function Home() {
     <>
       <Head>
         <title>AngelCgDev</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="og:title" content="Author: AngelGcDev, my personal website" />
       </Head>
       <div className="container mx-auto mb-10">
         <div className= "mx-8">

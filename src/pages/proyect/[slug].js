@@ -27,7 +27,7 @@ export default function Proyect (props) {
     <>
       <Head>
         <title>{proyect.title} | AngelCgDev</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={proyect.description} />
       </Head>
       <div className="sticky  top-0 z-10 bg-white flex justify-center">
         <div className='container'>
@@ -38,7 +38,7 @@ export default function Proyect (props) {
           <Image
             src={proyect.imageSrc}
             className=" object-cover"
-            alt="cover"
+            alt="project cover"
             layout="fill"
           />
       </div>        

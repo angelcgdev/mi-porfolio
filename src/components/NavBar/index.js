@@ -14,7 +14,7 @@ export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isO
           </div>
         </div>
       </div>
-      <div id="mobile-menu" className={`overflow-hidden transition-all duration-500 ${!isOpen?"max-h-0":"max-h-80"}`}>
+      <div id="mobile-menu" className={`overflow-hidden transition-all duration-500 ${!isOpen?"max-h-0":"max-h-96"}`}>
         {mobileMenu}
       </div>
     </div>

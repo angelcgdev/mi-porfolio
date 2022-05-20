@@ -11,7 +11,7 @@ const WorkCard = ({ img, name, description, slug }) => {
           className="overflow-hidden rounded-lg transition-all ease-out duration-300 hover:scale-95 w-full relative aspect-video"
           >
           <Image  
-            alt={name.img}
+            alt="project cover"
             className=" object-cover"
             src={img}
             objectFit="cover" 
@@ -21,7 +21,7 @@ const WorkCard = ({ img, name, description, slug }) => {
         <h1 className="mt-5 text-3xl font-medium">
           {name ? name : "Project Name"}
         </h1>
-        <h2 className="text-xl opacity-50">
+        <h2 className="text-xl text-slate-600">
           {description ? description : "Description"}
         </h2>
       </div>
