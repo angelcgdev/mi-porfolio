@@ -61,7 +61,8 @@ export default function Home() {
     <>
       <Head>
         <title>AngelCgDev</title>
-        <meta name="og:title" content="Author: AngelGcDev, my personal website" />
+        <meta name="og:title" content="Author: AngelGcDev, my personal website"/>
+        <meta name="description" content="my personal web site."/>
       </Head>
       <div className="container mx-auto mb-10">
         <div className= "mx-8">
