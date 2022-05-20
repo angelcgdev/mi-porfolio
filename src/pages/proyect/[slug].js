@@ -5,8 +5,17 @@ import Image from 'next/image'
 import { Footer } from '../../components/Footer';
 import { SectionTitle } from '../../components/Section/SectionTitle';
 import { SectionDescription } from '../../components/Section/SectionDescription';
+import { loadProyect } from '../../lib/load-proyect';
 export default function Proyect (props) {
-  const {proyect} = props;
+
+  let proyect = props.proyect;
+  proyect = {
+    title: proyect?.title??"Project Title",
+    description: proyect?.description??"Description",
+    longDescription: proyect?.longDescription??"Long Description",
+    imageSrc: proyect?.imageSrc??"https://images.unsplash.com/photo-1622929611233-bd6d58cbd4dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
+    slug: proyect?.slug??"slug",
+  }
   const router = useRouter();
   const handleHome = ()=>{
     router.back();
@@ -42,8 +51,7 @@ export default function Proyect (props) {
 export async function getStaticProps({params}) {
   
   const { slug } = params;
-  const response = await fetch(`http://localhost:3000/api/proyect/${slug}`);
-  const proyect = await response.json()
+  const proyect = await loadProyect(slug);
   return {
     props: {
       proyect,
