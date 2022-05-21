@@ -7,7 +7,7 @@ const Socials = ({ className }) => {
   return (
     <div className={`${className} flex`}>
       {yourData.socials.map((social, index) => (
-        <Button key={index} onClick={() => window.open(social.link)}>
+        <Button className='m-2' key={index} onClick={() => window.open(social.link)}>
           {social.title}
         </Button>
       ))}

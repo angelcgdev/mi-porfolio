@@ -1,12 +1,14 @@
 import React from "react";
 
-const Button = ({ children, bType,  kind, onClick, className}) => {
+const Button = ({ children, bType,  kind, onClick, className, isDisable}) => {
   if (kind === "primary") {
     return (
       <button
-        onClick={onClick}
+        // onClick={onClick}
+        onClick={onClick?onClick:null}
+        disabled={isDisable}
         type={bType}
-        className={`p-2 rounded-lg text-white bg-blue-700 hover:bg-blue-800 first:ml-0 ${className}`}>
+        className={`cursor-pointer p-2 rounded-lg text-white bg-blue-700 hover:bg-blue-800 first:ml-0 disabled:bg-blue-700 ${className}`}>
         {children}
       </button>
     );
@@ -15,6 +17,7 @@ const Button = ({ children, bType,  kind, onClick, className}) => {
     return (
       <button
         onClick={onClick}
+        disabled={isDisable}
         className={`p-2 my-2 rounded-lg transition-all ease-out duration-300 hover:bg-slate-100 hover:scale-105 w-full justify-center ${className}`}>
         {children}
       </button>
@@ -23,7 +26,8 @@ const Button = ({ children, bType,  kind, onClick, className}) => {
   return (
     <button
       onClick={onClick}
-      className={`p-2 m-2 rounded-lg transition-all ease-out duration-300 hover:bg-slate-100 hover:scale-105 active:scale-100  first:ml-0 ${className}`}>
+      disabled={isDisable}
+      className={`p-2 rounded-lg transition-all ease-out duration-300 hover:bg-slate-100 hover:scale-105 active:scale-100  first:ml-0 ${className}`}>
       {children}
     </button>
   );

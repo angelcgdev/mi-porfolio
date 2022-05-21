@@ -18,10 +18,13 @@ const WorkCard = ({ img, name, description, slug }) => {
             layout="fill"
           />
         </div>
-        <h1 className="mt-5 text-3xl font-medium">
+        <h1
+          // className="mt-5 text-3xl font-medium"
+          className="mt-5 text-2xl md:text-2xl font-medium"
+        >
           {name ? name : "Project Name"}
         </h1>
-        <h2 className="text-xl text-slate-600">
+        <h2 className="text-lg md:text-xl text-slate-600">
           {description ? description : "Description"}
         </h2>
       </div>

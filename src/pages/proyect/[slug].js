@@ -31,7 +31,7 @@ export default function Proyect (props) {
       </Head>
       <div className="sticky  top-0 z-10 bg-white flex justify-center">
         <div className='container'>
-          <NavBar className='mx-8 mb-4' goHome={handleHome}/>
+          <NavBar className='mx-8' goHome={handleHome}/>
         </div>
       </div>
       <div className='aspect-video relative mx-auto max-w-screen-2xl'>

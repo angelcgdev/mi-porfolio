@@ -6,3 +6,11 @@
 * {
   font-family: "Hind";
 }
+input,
+textarea,
+button,
+select,
+div,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

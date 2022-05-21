@@ -2,7 +2,7 @@ import React from 'react'
 
 export const InputGroup = ({children, label, error}) => {
   return (
-    <div className="mr-5 flex flex-col">
+    <div className="flex flex-col">
       <label className="flex flex-col">
         {label}
         {children}
