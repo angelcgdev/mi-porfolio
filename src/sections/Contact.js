@@ -53,6 +53,8 @@ export const ContactSection = ({contactRef}) => {
       },
       body: JSON.stringify(values)
     })
+    let result = await send.json();
+    console.log(result);
     if(send.status===200){
       formik.resetForm();
       setSended(true);

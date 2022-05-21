@@ -1,7 +1,6 @@
 require('dotenv').config()
 
 export default function handler(req, res) {
-    console.log(req.body)
     const user = process.env.email;
     const pass = process.env.password;
     let nodemailer = require('nodemailer');
@@ -26,10 +25,11 @@ export default function handler(req, res) {
       transporter.sendMail(mailData, function (err, info) {
         if(err){
             console.log(err)
+            res.status(505).json({ result: info })
         }
         else{
             console.log(info)
+            res.status(200).json({ result: info })
         }
       })
-    res.status(200).json({ result: 'Email sended' })
 }
