@@ -17,7 +17,6 @@ const initialValues = {
 }
 
 const validate = values => {
-  // console.log(values);
   const errors = {};
   const {name, subjet, email, message } = values;
   if (!name.trim()) {
@@ -36,7 +35,6 @@ const validate = values => {
   if (!message.trim()) {
     errors.message = 'Required';
   }
-  console.log(errors);
   return errors;
 };
 
@@ -47,11 +45,21 @@ export const ContactSection = ({contactRef}) => {
 
   const onSubmit =  async (values) => {
     setIsSending(true);
-    alert(JSON.stringify(values, null, 2));
-    // your async function here
-    formik.resetForm();
+    const send = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    })
+    if(send.status===200){
+      formik.resetForm();
+      setSended(true);
+    }else{
+      alert('ocurrio un error');
+    }
     setIsSending(false);
-    setSended(true);
   }
 
   const formik = useFormik({
