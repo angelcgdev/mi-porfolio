@@ -69,11 +69,11 @@ export default function Home() {
       <div className="container mx-auto mb-10">
         <ToastContainer
           position="bottom-left"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar
+          closeOnClick={false}
         />
         <div className= "mx-8">
-          <button onClick={notify}>Notify!</button>
           <Header
             navRef={navRef}
             handleTopScroll={handleTopScroll}

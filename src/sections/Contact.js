@@ -55,14 +55,12 @@ export const ContactSection = ({contactRef}) => {
       },
       body: JSON.stringify(values)
     })
-    let result = await send.json();
-    console.log(result);
     if(send.status===200){
       formik.resetForm();
       setSended(true);
-      toast.success("Wow so easy!");
+      toast.success("Message sent!");
     }else{
-      toast.success("Ocurrio un error")
+      toast.error("Something went wrong!")
     }
     setIsSending(false);
   }
