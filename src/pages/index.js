@@ -8,8 +8,11 @@ import { ContactSection } from "../sections/Contact";
 import { About } from "../sections/About";
 import { Footer } from "../components/Footer";
 import Head from 'next/head'
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Home() {
+  
+  const notify = () => toast("Wow so easy!"); 
   const router = useRouter();
   // Ref
   const navRef = useRef();
@@ -65,7 +68,13 @@ export default function Home() {
         <meta name="description" content="my personal web site."/>
       </Head>
       <div className="container mx-auto mb-10">
+        <ToastContainer
+          position="bottom-left"
+          autoClose={5000}
+          hideProgressBar
+        />
         <div className= "mx-8">
+          <button onClick={notify}>Notify!</button>
           <Header
             navRef={navRef}
             handleTopScroll={handleTopScroll}
