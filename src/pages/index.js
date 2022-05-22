@@ -8,11 +8,10 @@ import { ContactSection } from "../sections/Contact";
 import { About } from "../sections/About";
 import { Footer } from "../components/Footer";
 import Head from 'next/head'
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   
-  const notify = () => toast("Wow so easy!"); 
   const router = useRouter();
   // Ref
   const navRef = useRef();

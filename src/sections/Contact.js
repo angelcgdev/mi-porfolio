@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 import data from '../../yourData'
 import Button from '../components/Button'
 import { InputGroup } from '../components/InputGroup'
@@ -8,6 +9,7 @@ import { SectionDescription } from '../components/Section/SectionDescription'
 import { SectionTitle } from '../components/Section/SectionTitle'
 import { SectionWrapper } from '../components/Section/SectionWrapper'
 import Socials from '../components/Socials';
+
 
 const initialValues = {
   name:'',
@@ -25,13 +27,13 @@ const validate = values => {
   if (!subjet.trim()) {
     errors.subjet = 'Required';
   }
-
+  
   if (!email.trim()) {
     errors.email = 'Required';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
     errors.email = 'Invalid email address';
   }
-
+  
   if (!message.trim()) {
     errors.message = 'Required';
   }
@@ -39,10 +41,10 @@ const validate = values => {
 };
 
 export const ContactSection = ({contactRef}) => {
-
+  
   const [sended, setSended] = useState(false);
   const [isSending, setIsSending] = useState(false);
-
+  
   const onSubmit =  async (values) => {
     setIsSending(true);
     const send = await fetch('/api/contact', {
@@ -58,8 +60,9 @@ export const ContactSection = ({contactRef}) => {
     if(send.status===200){
       formik.resetForm();
       setSended(true);
+      toast.success("Wow so easy!");
     }else{
-      alert('ocurrio un error');
+      toast.success("Ocurrio un error")
     }
     setIsSending(false);
   }
