@@ -27,14 +27,16 @@ export default function Proyect (props) {
   }
 
   return (
-    <>
+    <div className='h-screen overflow-y-scroll'>
       <Head>
         <title>{proyect.title} | AngelCgDev</title>
         <meta name="description" content={proyect.description} />
       </Head>
-      <div className="sticky  top-0 z-10 bg-white flex justify-center">
+      <div className="sticky top-0 z-10 bg-white flex justify-center">
         <div className='container'>
-          <NavBar className='mx-8' goHome={handleHome}/>
+          <div className='mx-8'>
+            <NavBar goHome={handleHome}/>
+          </div>
         </div>
       </div>
       <div className='aspect-video relative mx-auto max-w-screen-2xl'>
@@ -55,7 +57,7 @@ export default function Proyect (props) {
           <Footer/>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 export async function getStaticProps({params}) {
