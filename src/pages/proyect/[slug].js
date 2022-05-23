@@ -7,6 +7,8 @@ import { SectionTitle } from '../../components/Section/SectionTitle';
 import { SectionDescription } from '../../components/Section/SectionDescription';
 import { loadProyect } from '../../lib/load-proyect';
 import Head from 'next/head'
+import data from '../../../yourData';
+import { SectionTools } from '../../components/Section/SectionTools';
 
 export default function Proyect (props) {
 
@@ -14,6 +16,7 @@ export default function Proyect (props) {
   proyect = {
     title: proyect?.title??"Project Title",
     description: proyect?.description??"Description",
+    tools: proyect?.tools??[],
     longDescription: proyect?.longDescription??"Long Description",
     imageSrc: proyect?.imageSrc??"https://images.unsplash.com/photo-1622929611233-bd6d58cbd4dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
     slug: proyect?.slug??"slug",
@@ -45,6 +48,7 @@ export default function Proyect (props) {
       <div className="container mx-auto mb-10">
         <div className='mx-8 mt-8'>
           <SectionTitle>{proyect.title}</SectionTitle>
+          <SectionTools tools={proyect.tools}/>
           <SectionDescription type='full'>
             {proyect.longDescription}
           </SectionDescription>
@@ -67,15 +71,12 @@ export async function getStaticProps({params}) {
 
 
 export async function getStaticPaths(context) {
+  const paths = data.projects.map((values)=>{
+    const slug = values.slug;
+    return { params: { slug } }
+  });
   return {
-    paths: [
-      { params: { slug: 'one' } },
-      { params: { slug: 'two' } },
-      { params: { slug: 'three' } },
-      { params: { slug: 'four' } },
-      { params: { slug: 'five' } },
-      { params: { slug: 'six' } },
-    ],
+    paths,
     fallback: true
   };
 }

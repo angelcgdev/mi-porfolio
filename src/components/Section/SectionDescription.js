@@ -3,7 +3,7 @@ import React from 'react'
 export const SectionDescription = ({children, type}) => {
   if(type === 'full'){
     return (
-      <p className="m-5 ml-0 text-lg sm:text-xl md:text-2xl select-none">{children}</p>
+      <p className="my-5 ml-0 text-lg sm:text-xl md:text-2xl select-none">{children}</p>
     )
   }
   return (
