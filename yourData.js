@@ -105,12 +105,12 @@ const data =  {
   // End Services Section --------------------------
 
   // About Secton --------------
-  aboutpara:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  aboutpara: `Peruvian Frontend Developer with +2 years of experience, I have developed and maintained web and mobile applications using JavaScript, React, flutter, Firebase, NodeJs, MySQL along with other technologies, always motivated to help the team with my knowledge and experience.
+  I am a technology fanatic always motivated to learn new things and take on new challenges. I love discussing topics related to efficiency optimization and use of best practices. I would like to work on projects related to blockchain and intelligence.`,
   //   End About Section ---------------------
   // Contact Secton --------------
   contactpara:
-  "If you need to tell me something contact me.",
+  "If you need to tell me something, contact me.",
 //   End Contact Section ---------------------
 };
 

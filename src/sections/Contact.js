@@ -77,7 +77,7 @@ export const ContactSection = ({contactRef}) => {
 
   return (
     <SectionWrapper sRef={contactRef}>
-      <SectionTitle>Contact.</SectionTitle>
+      <SectionTitle>Contact me.</SectionTitle>
       <SectionDescription>{data.contactpara}</SectionDescription>
       <div className="md:mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
         <form onSubmit={formik.handleSubmit} noValidate={true}>

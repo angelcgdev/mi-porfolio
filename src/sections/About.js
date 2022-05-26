@@ -7,7 +7,7 @@ import { SectionWrapper } from '../components/Section/SectionWrapper'
 export const About = ({aboutRef}) => {
   return (
     <SectionWrapper sRef={aboutRef}>
-        <SectionTitle>About.</SectionTitle>
+        <SectionTitle>About me.</SectionTitle>
         <SectionDescription>{data.aboutpara}</SectionDescription>
     </SectionWrapper>
   )

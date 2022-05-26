@@ -6,27 +6,28 @@ const WorkCard = ({ img, name, description, slug }) => {
   return (
     <Link key={name} href={ '/proyect/'+slug }>
       <div
-        className="overflow-hidden cursor-pointer rounded-lg p-2 first:ml-0">
+        className="overflow-hidden cursor-pointer rounded-lg first:ml-0 shadow-xl shadow-slate-50 transition-all ease-out duration-300 hover:scale-95">
         <div
-          className="overflow-hidden rounded-lg transition-all ease-out duration-300 hover:scale-95 w-full relative aspect-video"
+          className="overflow-hidden w-full relative aspect-video"
           >
-          <Image  
+          <Image
             alt="project cover"
-            className=" object-cover"
+            className="object-cover"
             src={img}
             objectFit="cover" 
             layout="fill"
           />
         </div>
-        <h1
-          // className="mt-5 text-3xl font-medium"
-          className="mt-5 text-2xl md:text-2xl font-medium"
-        >
-          {name ? name : "Project Name"}
-        </h1>
-        <h2 className="text-lg md:text-xl text-slate-600">
-          {description ? description : "Description"}
-        </h2>
+        <div className="p-4">
+          <h1
+            className="text-2xl md:text-2xl font-medium"
+          >
+            {name ? name : "Project Name"}
+          </h1>
+          <h2 className="text-lg md:text-xl text-slate-600">
+            {description ? description : "Description"}
+          </h2>
+        </div>
       </div>
     </Link>
   );
