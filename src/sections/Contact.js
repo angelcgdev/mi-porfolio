@@ -82,7 +82,7 @@ export const ContactSection = ({contactRef}) => {
       <div className="md:mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
         <form onSubmit={formik.handleSubmit} noValidate={true}>
           <InputGroup label='Name:' error={formik.errors.name} >
-            <input className="appearance-none border rounded py-2 px-3 text-gray-700" type="text" id="name" name="name" onChange={formik.handleChange} value={formik.values.name}/>
+            <input className="appearance-none border rounded py-2 px-3 text-gray-700 in-range:border-green-900" type="text" id="name" name="name" onChange={formik.handleChange} value={formik.values.name}/>
           </InputGroup>
           <InputGroup label='Subject:' error={formik.errors.subjet}>
             <input className="appearance-none border rounded py-2 px-3 text-gray-700" type="text" id="subjet" name="subjet" onChange={formik.handleChange} value={formik.values.subjet}/>
