@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "../Button";
 import { NavBar } from "../NavBar";
 const Header = ({handleTopScroll, handleWorkScroll, handleAboutScroll, handleContactScroll, navRef }) => {
-
   const [isOpen, setisOpen] = useState(false);
   const handleClick = (scoll)=>{
     setisOpen(!isOpen);
@@ -24,10 +23,11 @@ const Header = ({handleTopScroll, handleWorkScroll, handleAboutScroll, handleCon
       }
       mobileButton={
         <Button onClick={()=>handleClick()}>
-          <span className="sr-only">Open main menu</span>
+          <div id="toogle" className={isOpen&&"active"}></div>
+          {/* <span className="sr-only">Open main menu</span>
           <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"  stroke="currentColor" aria-hidden="true">
             <path d={!isOpen?"M4 6h16M4 12h16M4 18h16":"M6 18L18 6M6 6l12 12"} />
-          </svg>
+          </svg> */}
         </Button>
       }
       mobileMenu={

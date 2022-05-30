@@ -2,7 +2,7 @@ const data =  {
 
   //   Header Details ---------------------
   name: "Angel",
-  headerTaglineOne: "Hello 👋",
+  headerTaglineOne: "Hello ",
   headerTaglineTwo:
     "I'm Angel CG - fronted developer from perú. ",
 
