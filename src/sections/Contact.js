@@ -80,24 +80,24 @@ export const ContactSection = ({contactRef}) => {
       <SectionTitle>Contact me.</SectionTitle>
       <SectionDescription>{data.contactpara}</SectionDescription>
       <div className="md:mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <form onSubmit={formik.handleSubmit} noValidate={true} >
+        <form className='flex flex-col gap-4' onSubmit={formik.handleSubmit} noValidate={true} >
           <InputGroup label='Name:' error={formik.errors.name} >
-            <input className="appearance-none border rounded py-2 px-3 text-gray-700 in-range:border-green-900" type="text" id="name" name="name" onChange={formik.handleChange} value={formik.values.name}/>
+            <input type="text" id="name" name="name" onChange={formik.handleChange} value={formik.values.name}/>
           </InputGroup>
           <InputGroup label='Subject:' error={formik.errors.subjet}>
-            <input className="appearance-none border rounded py-2 px-3 text-gray-700" type="text" id="subjet" name="subjet" onChange={formik.handleChange} value={formik.values.subjet} autoComplete="off"/>
+            <input type="text" id="subjet" name="subjet" onChange={formik.handleChange} value={formik.values.subjet} autoComplete="off"/>
           </InputGroup>
           <InputGroup label='Email:' error={formik.errors.email}>
-            <input className="appearance-none border rounded py-2 px-3 text-gray-700" type="email" id="email" name="email" onChange={formik.handleChange} value={formik.values.email}/>
+            <input type="email" id="email" name="email" onChange={formik.handleChange} value={formik.values.email}/>
           </InputGroup>
           <InputGroup label='Message:' error={formik.errors.message}>
-            <textarea className="resize-none appearance-none border rounded py-2 px-3 text-gray-700" id="message" name="message" rows={3} onChange={formik.handleChange} value={formik.values.message} autoComplete="off"/>
+            <textarea className="resize-none" id="message" name="message" rows={3} onChange={formik.handleChange} value={formik.values.message} autoComplete="off"/>
           </InputGroup>
-          <Button className="px-3 flex justify-center items-center" isDisable={sended} kind="primary" bType="submit">
-            <div className='mt-0.5'>Submit</div>
+          <Button className="flex gap-2 justify-center items-center min-w-0 w-min max-w-max transition-all duration-1000" isDisable={sended} kind="primary" bType="submit">
+            Send
             {
-              isSending&&
-              <Loader className='ml-2'/>
+              isSending?
+              <Loader/>:<></>
             }
           </Button>
         </form>

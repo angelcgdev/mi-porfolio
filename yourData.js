@@ -4,7 +4,7 @@ const data =  {
   name: "Angel",
   headerTaglineOne: "Hello ",
   headerTaglineTwo:
-    "I'm Angel CG - fronted developer from perú. ",
+    "I'm Angel CG - frontend developer from perú. ",
 
   socials: [
     { title: "Github", link: "https://github.com/angelcgdev" },

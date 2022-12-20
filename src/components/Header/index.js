@@ -23,15 +23,11 @@ const Header = ({handleTopScroll, handleWorkScroll, handleAboutScroll, handleCon
       }
       mobileButton={
         <Button onClick={()=>handleClick()}>
-          <div id="toogle" className={isOpen&&"active"}></div>
-          {/* <span className="sr-only">Open main menu</span>
-          <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"  stroke="currentColor" aria-hidden="true">
-            <path d={!isOpen?"M4 6h16M4 12h16M4 18h16":"M6 18L18 6M6 6l12 12"} />
-          </svg> */}
+          <div id="toogle" className={isOpen?"active":""}></div>
         </Button>
       }
       mobileMenu={
-        <div className={`px-2 pt-2 pb-3 bg-white`}>
+        <div className={`flex flex-col sm:hidden px-2 pt-2 pb-3 bg-white`}>
           <Button kind="inline" onClick={()=>handleClick(handleAboutScroll)}>About</Button>
           <Button kind="inline" onClick={()=>handleClick(handleWorkScroll)}>Portfolio</Button>
           <Button kind="inline" onClick={()=>handleClick(handleContactScroll)}>Contact</Button>

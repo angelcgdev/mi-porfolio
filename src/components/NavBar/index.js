@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import styles from "./styles.module.scss";
 
 export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isOpen, className}) => {
   return (
-    <div className={`py-3 sticky top-0 z-10 bg-white ${className}`} ref={navRef}>
+    <nav className={`shadow-sm ${styles.nav} ${className}`} ref={navRef}>
       <div className="h-10 flex items-center justify-between bg-white">
         <h1 className="font-bold cursor-pointer select-none" onClick={goHome}>AngelCgDev.</h1>
         <div>
@@ -14,9 +15,9 @@ export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isO
           </div>
         </div>
       </div>
-      <div id="mobile-menu" className={`overflow-hidden transition-all duration-500 ${!isOpen?"max-h-0":"max-h-96"}`}>
+      <div id="mobile-menu" className={`overflow-hidden transition-all duration-300 ${!isOpen?"max-h-0":"max-h-96"}`}>
         {mobileMenu}
       </div>
-    </div>
+    </nav>
   )
 }

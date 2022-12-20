@@ -1,14 +1,9 @@
 import { useRef } from "react";
-import Header from "../components/Header";
-
 import { useRouter } from "next/router";
-import { Welcome } from "../sections/Welcome";
-import { PortfolioSection } from "../sections/Portfolio";
-import { ContactSection } from "../sections/Contact";
-import { About } from "../sections/About";
-import { Footer } from "../components/Footer";
 import Head from 'next/head'
 import { ToastContainer } from "react-toastify";
+import { About, ContactSection, PortfolioSection, Welcome, } from "../sections";
+import { Footer, Header } from "../components";
 
 export default function Home() {
   
@@ -66,14 +61,14 @@ export default function Home() {
         <meta name="og:title" content="Author: AngelGcDev, my personal website"/>
         <meta name="description" content="my personal web site."/>
       </Head>
-      <div className="container mx-auto mb-10">
+      {/* <div className="container mx-auto mb-10"> */}
         <ToastContainer
           position="bottom-left"
           autoClose={3000}
           hideProgressBar
           closeOnClick={false}
         />
-        <div className= "mx-8">
+        {/* <div className= "mx-8"> */}
           <Header
             navRef={navRef}
             handleTopScroll={handleTopScroll}
@@ -86,8 +81,8 @@ export default function Home() {
           <PortfolioSection portRef={portfolioRef}/>
           <ContactSection contactRef={contactRef}/>
           <Footer/>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
     </>
   );
 }

@@ -20,11 +20,11 @@ const WorkCard = ({ img, name, description, slug }) => {
         </div>
         <div className="p-4">
           <h1
-            className="text-2xl md:text-2xl font-medium"
+            className="text-2xl font-medium"
           >
             {name ? name : "Project Name"}
           </h1>
-          <h2 className="text-lg md:text-xl text-slate-600">
+          <h2 className="text-lg text-slate-600">
             {description ? description : "Description"}
           </h2>
         </div>

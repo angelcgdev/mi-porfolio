@@ -5,9 +5,9 @@ import yourData from "../../../yourData";
 
 const Socials = ({ className }) => {
   return (
-    <div className={`${className} flex`}>
+    <div className={`${className} flex flex-wrap gap-2`}>
       {yourData.socials.map((social, index) => (
-        <Button className='m-2' key={index} onClick={() => window.open(social.link)}>
+        <Button key={index} onClick={() => window.open(social.link)}>
           {social.title}
         </Button>
       ))}

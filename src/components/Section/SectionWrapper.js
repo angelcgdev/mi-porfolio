@@ -2,8 +2,10 @@ import React from 'react'
 
 export const SectionWrapper = ({sRef, children}) => {
   return (
-    <div className="mt-40" ref={sRef}>
+    <section className="pt-40 pb-5" ref={sRef}>
+      <div>
         {children}
-    </div>
+      </div>
+    </section>
   )
 }
