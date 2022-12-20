@@ -140,11 +140,11 @@ body{
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-slate-200 rounded-md transition-all ease-out duration-200 shadow-none;
+  @apply bg-transparent transition-all ease-out duration-200 shadow-none;
 }
 
 ::-webkit-scrollbar-thumb {  
-  @apply bg-primary bg-opacity-20 rounded-md transition-all ease-out duration-700 hover:bg-opacity-30 hover:bg-primary shadow-none;
+  @apply bg-primary bg-opacity-20 transition-all ease-out duration-700 hover:bg-opacity-30 hover:bg-primary shadow-none;
 }
 
 
