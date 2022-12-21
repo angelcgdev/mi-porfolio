@@ -1,8 +1,6 @@
 import React from 'react'
 import data from '../../yourData'
-import { SectionDescription } from '../components/Section/SectionDescription'
-import { SectionTitle } from '../components/Section/SectionTitle'
-import { SectionWrapper } from '../components/Section/SectionWrapper'
+import { SectionDescription,SectionTitle, SectionWrapper } from '../components';
 
 export const About = ({aboutRef}) => {
   return (

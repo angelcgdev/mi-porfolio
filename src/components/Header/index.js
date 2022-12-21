@@ -27,10 +27,10 @@ const Header = ({handleTopScroll, handleWorkScroll, handleAboutScroll, handleCon
         </Button>
       }
       mobileMenu={
-        <div className={`flex flex-col sm:hidden px-2 pt-2 pb-3 bg-white`}>
-          <Button kind="inline" onClick={()=>handleClick(handleAboutScroll)}>About</Button>
-          <Button kind="inline" onClick={()=>handleClick(handleWorkScroll)}>Portfolio</Button>
-          <Button kind="inline" onClick={()=>handleClick(handleContactScroll)}>Contact</Button>
+        <div className={`flex flex-col gap-1 sm:hidden p-5`}>
+          <Button className="hover:scale-100" kind="inline" onClick={()=>handleClick(handleAboutScroll)}>About</Button>
+          <Button className="hover:scale-100" kind="inline" onClick={()=>handleClick(handleWorkScroll)}>Portfolio</Button>
+          <Button className="hover:scale-100" kind="inline" onClick={()=>handleClick(handleContactScroll)}>Contact</Button>
         </div>
       }
       isOpen={isOpen}

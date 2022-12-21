@@ -61,14 +61,12 @@ export default function Home() {
         <meta name="og:title" content="Author: AngelGcDev, my personal website"/>
         <meta name="description" content="my personal web site."/>
       </Head>
-      {/* <div className="container mx-auto mb-10"> */}
         <ToastContainer
           position="bottom-left"
           autoClose={3000}
           hideProgressBar
           closeOnClick={false}
         />
-        {/* <div className= "mx-8"> */}
           <Header
             navRef={navRef}
             handleTopScroll={handleTopScroll}
@@ -81,8 +79,6 @@ export default function Home() {
           <PortfolioSection portRef={portfolioRef}/>
           <ContactSection contactRef={contactRef}/>
           <Footer/>
-        {/* </div> */}
-      {/* </div> */}
     </>
   );
 }

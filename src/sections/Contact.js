@@ -2,13 +2,7 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import data from '../../yourData'
-import Button from '../components/Button'
-import { InputGroup } from '../components/InputGroup'
-import { Loader } from '../components/Loader'
-import { SectionDescription } from '../components/Section/SectionDescription'
-import { SectionTitle } from '../components/Section/SectionTitle'
-import { SectionWrapper } from '../components/Section/SectionWrapper'
-import Socials from '../components/Socials';
+import { Button, InputGroup, Loader, SectionDescription, SectionTitle, SectionWrapper, Socials } from '../components';
 
 
 const initialValues = {

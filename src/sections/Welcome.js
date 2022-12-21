@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
-import data from '../../yourData'
-import Socials from '../components/Socials'
+import React from 'react';
+import data from '../../yourData';
+import { Socials } from '../components';
 
 export const Welcome = () => {
   return (
