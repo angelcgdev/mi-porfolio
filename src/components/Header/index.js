@@ -60,7 +60,7 @@ const Header = (props) => {
       mobileMenu={
         <div className={`flex flex-col gap-1 sm:hidden p-5`}>
           <LinkButton
-            className="hover:scale-100"
+            className="hover:scale-100 active:scale-100"
             kind="inline"
             elementRef={aboutRef}
             href="#about"
@@ -69,7 +69,7 @@ const Header = (props) => {
               About
           </LinkButton>
           <LinkButton
-            className="hover:scale-100"
+            className="hover:scale-100 active:scale-100"
             kind="inline"
             elementRef={portfolioRef}
             href="#portfolio"
@@ -78,7 +78,7 @@ const Header = (props) => {
             Portfolio
           </LinkButton>
           <LinkButton
-            className="hover:scale-100"
+            className="hover:scale-100 active:scale-100"
             kind="inline"
             elementRef={contactRef}
             href="#contact"
