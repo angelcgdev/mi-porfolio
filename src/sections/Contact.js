@@ -1,8 +1,9 @@
 import { useFormik } from 'formik'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify';
 import data from '../../yourData'
 import { Button, InputGroup, Loader, SectionDescription, SectionTitle, SectionWrapper, Socials } from '../components';
+import { WebContext } from '../context/web-context';
 
 
 const initialValues = {
@@ -34,7 +35,10 @@ const validate = values => {
   return errors;
 };
 
-export const ContactSection = ({contactRef}) => {
+export const ContactSection = (props) => {
+
+  
+  const {contactRef} = useContext(WebContext);
   
   const [sended, setSended] = useState(false);
   const [isSending, setIsSending] = useState(false);

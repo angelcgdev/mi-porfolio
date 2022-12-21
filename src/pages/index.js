@@ -1,58 +1,8 @@
-import { useRef } from "react";
-import { useRouter } from "next/router";
 import Head from 'next/head'
 import { ToastContainer } from "react-toastify";
 import { About, ContactSection, PortfolioSection, Welcome, } from "../sections";
-import { Footer, Header } from "../components";
 
 export default function Home() {
-  
-  const router = useRouter();
-  // Ref
-  const navRef = useRef();
-  const aboutRef = useRef();
-  const portfolioRef = useRef();
-  const contactRef = useRef();
-
-  // Handling Scroll
-
-  const handleTopScroll = () => {
-    router.push('', undefined, { scroll: false });
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const handleAboutScroll = () => {
-    router.push('#about', undefined, { scroll: false});
-    window.scrollTo({
-      top: aboutRef.current.offsetTop - navRef.current.offsetHeight,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
-  
-  const handlePortfolioScroll = () => {
-    router.push('#portfolio', undefined, { scroll: false});
-    window.scrollTo({
-      top: portfolioRef.current.offsetTop - navRef.current.offsetHeight,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const handleContactScroll = () => {
-    router.push('#contact', undefined, { scroll: false});
-    window.scrollTo({
-      top: contactRef.current.offsetTop - navRef.current.offsetHeight,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
-
-
 
   return (
     <>
@@ -67,18 +17,11 @@ export default function Home() {
           hideProgressBar
           closeOnClick={false}
         />
-          <Header
-            navRef={navRef}
-            handleTopScroll={handleTopScroll}
-            handleWorkScroll={handlePortfolioScroll}
-            handleAboutScroll={handleAboutScroll}
-            handleContactScroll={handleContactScroll}
-          />
           <Welcome/>
-          <About aboutRef={aboutRef}/>
-          <PortfolioSection portRef={portfolioRef}/>
-          <ContactSection contactRef={contactRef}/>
-          <Footer/>
+          <About/>
+          <PortfolioSection/>
+          <ContactSection/>
     </>
   );
 }
+

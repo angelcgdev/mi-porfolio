@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import data from '../../yourData'
 import { SectionDescription,SectionTitle, SectionWrapper } from '../components';
+import { WebContext } from '../context/web-context';
 
-export const About = ({aboutRef}) => {
+export const About = () => {
+  const {aboutRef} = useContext(WebContext);
   return (
     <SectionWrapper sRef={aboutRef}>
         <SectionTitle>About me.</SectionTitle>

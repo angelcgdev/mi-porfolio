@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../Button";
 import { NavBar } from "../NavBar";
-const Header = ({handleTopScroll, handleWorkScroll, handleAboutScroll, handleContactScroll, navRef }) => {
+import { LinkButton } from "../LinkButton";
+import { WebContext } from "../../context/web-context";
+import { useRouter } from "next/router";
+const Header = (props) => {
+  
+  const {navRef, aboutRef, portfolioRef, contactRef} = useContext(WebContext);
+  
+  const router = useRouter();
   const [isOpen, setisOpen] = useState(false);
-  const handleClick = (scoll)=>{
+  const handleClick = ()=>{
     setisOpen(!isOpen);
-    if(scoll){
-      scoll();
-    }
   }
+
+  const handleTopScroll = () => {
+    router.push('', undefined, { scroll: false });
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
+  
+
 
   return (
     <NavBar
@@ -16,9 +32,9 @@ const Header = ({handleTopScroll, handleWorkScroll, handleAboutScroll, handleCon
       goHome={handleTopScroll}
       deskMenu={
         <div className="hidden sm:flex sm:npm sm:gap-2">
-          <Button onClick={handleAboutScroll}>About</Button>
-          <Button onClick={handleWorkScroll}>Portfolio</Button>
-          <Button onClick={handleContactScroll}>Contact</Button>
+          <LinkButton elementRef={aboutRef} href="#about">About</LinkButton>
+          <LinkButton elementRef={portfolioRef} href="#portfolio">Portfolio</LinkButton>
+          <LinkButton elementRef={contactRef} href="#contact" >Contact</LinkButton>
         </div>
       }
       mobileButton={
@@ -28,9 +44,33 @@ const Header = ({handleTopScroll, handleWorkScroll, handleAboutScroll, handleCon
       }
       mobileMenu={
         <div className={`flex flex-col gap-1 sm:hidden p-5`}>
-          <Button className="hover:scale-100" kind="inline" onClick={()=>handleClick(handleAboutScroll)}>About</Button>
-          <Button className="hover:scale-100" kind="inline" onClick={()=>handleClick(handleWorkScroll)}>Portfolio</Button>
-          <Button className="hover:scale-100" kind="inline" onClick={()=>handleClick(handleContactScroll)}>Contact</Button>
+          <LinkButton
+            className="hover:scale-100"
+            kind="inline"
+            elementRef={aboutRef}
+            href="#about"
+            afterNavigate={handleClick}
+            >
+              About
+          </LinkButton>
+          <LinkButton
+            className="hover:scale-100"
+            kind="inline"
+            elementRef={portfolioRef}
+            href="#portfolio"
+            afterNavigate={handleClick}
+          >
+            Portfolio
+          </LinkButton>
+          <LinkButton
+            className="hover:scale-100"
+            kind="inline"
+            elementRef={contactRef}
+            href="#contact"
+            afterNavigate={handleClick}
+          >
+            Contact
+          </LinkButton>
         </div>
       }
       isOpen={isOpen}

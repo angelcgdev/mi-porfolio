@@ -1,8 +1,6 @@
 import React from 'react'
-import { NavBar } from '../../components/NavBar';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
-import { Footer } from '../../components/Footer';
 import { SectionTitle } from '../../components/Section/SectionTitle';
 import { SectionDescription } from '../../components/Section/SectionDescription';
 import { loadProyect } from '../../lib/load-proyect';
@@ -27,37 +25,33 @@ export default function Proyect (props) {
   }
 
   return (
-    <div className='h-screen overflow-y-scroll'>
+    <>
       <Head>
         <title>{proyect.title} | AngelCgDev</title>
         <meta name="description" content={proyect.description} />
       </Head>
-      <div className="sticky top-0 z-10 bg-white flex justify-center">
-        <div className='container'>
-          <div className='mx-8'>
-            <NavBar goHome={handleHome}/>
+      <section>
+        <div className='flex flex-col gap-4' style={{padding:0}}>
+          <div className=''>
+              <Image
+                src={proyect.imageSrc}
+                alt="project cover"
+                width="100%"
+                height="60%"
+                layout="responsive"
+                objectFit="cover"
+              />
+          </div>        
+          <div className='px-5'>
+            <SectionTitle>{proyect.title}</SectionTitle>
+            <SectionTools tools={proyect.tools}/>
+            <SectionDescription type='full'>
+              {proyect.longDescription}
+            </SectionDescription>
           </div>
         </div>
-      </div>
-      <div className='aspect-video relative mx-auto max-w-screen-2xl'>
-          <Image
-            src={proyect.imageSrc}
-            className=" object-cover"
-            alt="project cover"
-            layout="fill"
-          />
-      </div>        
-      <div className="container mx-auto mb-10">
-        <div className='mx-8 mt-8'>
-          <SectionTitle>{proyect.title}</SectionTitle>
-          <SectionTools tools={proyect.tools}/>
-          <SectionDescription type='full'>
-            {proyect.longDescription}
-          </SectionDescription>
-          <Footer/>
-        </div>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }
 export async function getStaticProps({params}) {
