@@ -7,7 +7,8 @@ export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isO
   const [isOnTop, setIsOnTop] =  useState();
   const isOpenRef = useRef(isOpen);
   const heightExpanded = 156;
-  const range = (heightExpanded+40)*2;
+  const oscillation = 20;
+  const range = (heightExpanded+oscillation)*2;
   const initValue=0;
   const prevRef = useRef({limitLeft: getLimits(initValue, 'left'), current: initValue, limitRight: getLimits(initValue)});
 
@@ -23,8 +24,8 @@ export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isO
     if(isOpenRef.current){
       const { limitLeft, limitRight } =  prevRef.current;
       const scrollYNormalized = scrollY===0?scrollY:(scrollY-heightExpanded);
-      if(scrollYNormalized < (limitLeft) || scrollYNormalized > (limitRight)){
-        // console.log('fuera de rango==>');
+      console.log({left: limitLeft, limitLeft:(limitLeft + (heightExpanded*2)), scrollYNormalized, limitRight})
+      if(scrollYNormalized < (limitLeft + (heightExpanded+2) ) || scrollYNormalized > limitRight){
         onScroll&&onScroll();
       }
     }
@@ -37,7 +38,6 @@ export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isO
       const { scrollY } = window;
       const scrollYNormalized = scrollY===0?scrollY:(scrollY-heightExpanded);
       prevRef.current = {limitLeft: getLimits(scrollYNormalized, 'left'), current: scrollYNormalized, limitRight: getLimits(scrollYNormalized, 'right')};
-      console.log(prevRef.current);
     }
     isOpenRef.current = isOpen;
   // eslint-disable-next-line react-hooks/exhaustive-deps
