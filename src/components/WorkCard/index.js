@@ -6,7 +6,7 @@ const WorkCard = ({ img, name, description, slug }) => {
   return (
     <Link key={name} href={ '/proyect/'+slug }>
       <div
-        className="overflow-hidden cursor-pointer rounded-lg first:ml-0 transition-all ease-out duration-300 hover:scale-95 border-gray-200" style={{borderWidth:1}} >
+        className="overflow-hidden cursor-pointer select-none rounded-lg first:ml-0 transition-all ease-out duration-300 hover:scale-95 border-gray-200" style={{borderWidth:1}} >
         <div
           className="overflow-hidden w-full relative aspect-video"
           >

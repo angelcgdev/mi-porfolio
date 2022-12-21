@@ -44,6 +44,7 @@ const Header = (props) => {
       navRef={navRef}
       goHome={!hideRightOpt?handleTopScroll:back}
       hideRightOpt={hideRightOpt}
+      onScroll={()=>setisOpen(false)}
       deskMenu={
         <div className="hidden sm:flex sm:npm sm:gap-2">
           <LinkButton elementRef={aboutRef} href="#about">About</LinkButton>

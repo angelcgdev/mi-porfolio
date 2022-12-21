@@ -7,7 +7,7 @@ export const Welcome = () => {
   return (
     <section className="pb-5 pt-24 flex flex-col gap-4">
       <div>
-        <div>
+        <div className='relative'>
           <h1 className="text-4xl md:text-6xl text-bold w-4/5 inline">
               {data.headerTaglineOne}
           <span className="helloImg">

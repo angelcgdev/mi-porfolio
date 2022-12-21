@@ -1,20 +1,53 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styles from "./styles.module.scss";
 import { useRouter } from 'next/router';
 
-export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isOpen, className, hideRightOpt}) => {
-
+export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isOpen = false, className, hideRightOpt, onScroll}) => {
+  
   const [isOnTop, setIsOnTop] =  useState();
+  const isOpenRef = useRef(isOpen);
+  const heightExpanded = 156;
+  const range = (heightExpanded+40)*2;
+  const initValue=0;
+  const prevRef = useRef({limitLeft: getLimits(initValue, 'left'), current: initValue, limitRight: getLimits(initValue)});
 
-  const onScroll = useCallback(event => {
+  function getLimits(initialValue = 0, position='right'){
+    if(position=='right'){
+      return initialValue + (range*.5);
+    }
+    return initialValue -(range*.5);
+  }
+  const scrolling = useCallback(event => {
     const { scrollY } = window;
     setIsOnTop(scrollY>10);
-  }, []);
+    if(isOpenRef.current){
+      const { limitLeft, limitRight } =  prevRef.current;
+      const scrollYNormalized = scrollY===0?scrollY:(scrollY-heightExpanded);
+      if(scrollYNormalized < (limitLeft) || scrollYNormalized > (limitRight)){
+        // console.log('fuera de rango==>');
+        onScroll&&onScroll();
+      }
+    }
+    
+
+  },[isOpenRef, onScroll]);
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
+    if(isOpen){
+      const { scrollY } = window;
+      const scrollYNormalized = scrollY===0?scrollY:(scrollY-heightExpanded);
+      prevRef.current = {limitLeft: getLimits(scrollYNormalized, 'left'), current: scrollYNormalized, limitRight: getLimits(scrollYNormalized, 'right')};
+      console.log(prevRef.current);
+    }
+    isOpenRef.current = isOpen;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen])
+  
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrolling, { passive: true });
     return () => {
-      window.removeEventListener("scroll", onScroll, { passive: true });
+      window.removeEventListener("scroll", scrolling, { passive: true });
     }
   }, []);
   return (
