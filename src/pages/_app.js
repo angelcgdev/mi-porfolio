@@ -7,11 +7,12 @@ import { WebContext } from "../context/web-context";
 
 export const ContextStore = (props) => {
   const navRef = useRef();
+  const mainRef = useRef();
   const aboutRef = useRef();
   const portfolioRef = useRef();
   const contactRef = useRef();
 
-  const value = { navRef, aboutRef, portfolioRef, contactRef};
+  const value = { navRef, mainRef, aboutRef, portfolioRef, contactRef};
   return <WebContext.Provider value={value}>{props.children}</WebContext.Provider>;
 };
 

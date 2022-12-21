@@ -1,8 +1,9 @@
 import React from 'react'
 
-export const SectionWrapper = ({sRef, children}) => {
+export const SectionWrapper = ({id, sRef, children}) => {
+
   return (
-    <section className="pt-40 pb-5" ref={sRef}>
+    <section id={id} className="pt-40 pb-5" ref={sRef}>
       <div>
         {children}
       </div>

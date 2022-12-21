@@ -36,8 +36,6 @@ const Header = (props) => {
       setHideRightOpt(true);
     }
   }, [router.asPath]);
-  
-
 
   return (
     <NavBar

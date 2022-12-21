@@ -74,7 +74,7 @@ export const ContactSection = (props) => {
 
 
   return (
-    <SectionWrapper sRef={contactRef}>
+    <SectionWrapper id="#contact" sRef={contactRef}>
       <SectionTitle>Contact me.</SectionTitle>
       <SectionDescription>{data.contactpara}</SectionDescription>
       <div className="md:mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">

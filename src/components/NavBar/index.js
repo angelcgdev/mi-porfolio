@@ -1,15 +1,19 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import styles from "./styles.module.scss";
 import { useRouter } from 'next/router';
+import { WebContext } from '../../context/web-context';
 
 export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isOpen = false, className, hideRightOpt, onScroll}) => {
   
+  const {mainRef, aboutRef, portfolioRef, contactRef} = useContext(WebContext);
+  const [anchor, setAnchor] =  useState('');
   const [isOnTop, setIsOnTop] =  useState();
   const isOpenRef = useRef(isOpen);
   const heightExpanded = 156;
   const oscillation = 20;
   const range = (heightExpanded+oscillation)*2;
   const initValue=0;
+  const router = useRouter();
   const prevRef = useRef({limitLeft: getLimits(initValue, 'left'), current: initValue, limitRight: getLimits(initValue)});
 
   function getLimits(initialValue = 0, position='right'){
@@ -30,8 +34,28 @@ export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isO
       }
     }
     
-
+    isVisible(mainRef);
+    isVisible(aboutRef);
+    isVisible(portfolioRef);
+    isVisible(contactRef);  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isOpenRef, onScroll]);
+  
+
+  const isVisible = (ref)=> {
+    var { top } = ref.current.getBoundingClientRect();
+    const id = ref.current.id;
+    if(top>0 && top<100){
+      setAnchor(id==='#main'?'':id)
+    }
+  }
+  
+  useEffect(() => {
+    console.log('changin tag')
+    router.push(anchor, undefined, { scroll: false });  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [anchor])
+  
 
   useEffect(() => {
     if(isOpen){
