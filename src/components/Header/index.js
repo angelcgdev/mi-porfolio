@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "../Button";
 import { NavBar } from "../NavBar";
 import { LinkButton } from "../LinkButton";
@@ -10,6 +10,7 @@ const Header = (props) => {
   
   const router = useRouter();
   const [isOpen, setisOpen] = useState(false);
+  const [hideRightOpt, setHideRightOpt] =  useState(true);
   const handleClick = ()=>{
     setisOpen(!isOpen);
   }
@@ -23,13 +24,26 @@ const Header = (props) => {
     });
   };
 
+  const back=()=> {
+    router.back();
+  }
+
+  
+  useEffect(() => {
+    if(router.asPath.includes('/#') || router.asPath==='/'){
+      setHideRightOpt(false);
+    }else{
+      setHideRightOpt(true);
+    }
+  }, [router.asPath]);
   
 
 
   return (
     <NavBar
       navRef={navRef}
-      goHome={handleTopScroll}
+      goHome={!hideRightOpt?handleTopScroll:back}
+      hideRightOpt={hideRightOpt}
       deskMenu={
         <div className="hidden sm:flex sm:npm sm:gap-2">
           <LinkButton elementRef={aboutRef} href="#about">About</LinkButton>
