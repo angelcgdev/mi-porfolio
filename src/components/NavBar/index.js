@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { useRouter } from 'next/router';
 import { WebContext } from '../../context/web-context';
 
-export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isOpen = false, className, hideRightOpt, onScroll}) => {
+export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = false, className, hideRightOpt, onScroll}) => {
   
   const {mainRef, aboutRef, portfolioRef, contactRef} = useContext(WebContext);
   const [anchor, setAnchor] =  useState('');
@@ -73,18 +73,14 @@ export const NavBar = ({navRef , goHome, deskMenu, mobileMenu, mobileButton, isO
     return () => {
       window.removeEventListener("scroll", scrolling, { passive: true });
     }
-  }, []);
+  }, [scrolling]);
+  // ${isOnTop?'dark:bg-opacity-100':'dark:bg-opacity-0'}
   return (
-    <nav className={`${isOnTop||isOpen?'shadow-sm':''} ${styles.nav} ${className} transition-all duration-200`} ref={navRef}>
-      <div className="h-10 flex items-center justify-between bg-white">
+    <nav className={`bg-white dark:bg-black  ${isOnTop||isOpen?'shadow-sm':''} ${styles.nav} ${!!className?className:''}`} ref={navRef}>
+      <div className="h-10 flex items-center justify-between">
         <h1 className="font-bold cursor-pointer select-none" onClick={goHome}>AngelCgDev.</h1>
-        <div className={`${hideRightOpt?'hidden':''}`}>
-            {deskMenu}
-          <div className="flex">
-            <div className="sm:hidden">
-                {mobileButton}
-            </div>
-          </div>
+        <div>
+          {rightOptions}
         </div>
       </div>
       <div id="mobile-menu" className={`${hideRightOpt?'hidden':''} overflow-hidden transition-all duration-300 ${!isOpen?"max-h-0":"max-h-96"}`}>

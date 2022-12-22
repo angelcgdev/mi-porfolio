@@ -18,7 +18,16 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/sections/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
+  // purge: {
+  //   enabled: true,
+  //   content: ['./src/**/*.js'],
+  //   options: {
+  //     safelist: ['dark'],
+  //   },
+  // },
   theme: {
+    typography: (theme) => ({}),
     extend: {
       colors:{
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
@@ -26,6 +35,11 @@ module.exports = {
         disabled: 'rgb(var(--color-disabled) / <alpha-value>)',
       }
     },
+  },
+  variants: {
+    extend: {
+      textOpacity: ['dark']
+    }
   },
   plugins: [hoverPlugin],
 };

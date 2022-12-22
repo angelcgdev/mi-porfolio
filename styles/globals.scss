@@ -10,8 +10,29 @@
   box-sizing: border-box;
 }
 
+@mixin minimalGradient(){
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  height: 5rem;
+  width: 100%;
+  opacity: .4;
+  filter: blur(40px);
+  background: radial-gradient(circle,theme('colors.secondary') 0,theme('colors.primary') 100%);
+}
+
+.gradient-circle{
+  top: -30px;
+  @include minimalGradient();
+}
+.gradient-circle-button{
+  bottom: -20px;
+  @include minimalGradient();
+}
+
 body{
   font-size: 14px;
+  @apply bg-white dark:bg-black transition-all duration-200;
 
   @screen md{
     font-size: 16px;
@@ -20,44 +41,59 @@ body{
   @screen lg{
     font-size: 18px;
   }
-  @screen xl{
-    font-size: 20px;
+  >:first-child{
+    position: relative;
   }
+  
 }
+// .dark{
+//   nav{
+//     background-color: red;
+//   }
+// }
 
 @layer base {
   :root{
     --color-primary: 30 64 175;
-    --color-secondary: 194, 194, 194;
+    --color-secondary: 107 107 248;
     --color-disabled: 229 231 235;
   }
 }
 
 @layer components {
-
-  nav>:first-child{
-    @apply px-5 max-w-7xl m-auto;
-  }
-  section>:first-child{
-    @apply px-5 max-w-7xl m-auto;
-  }
+  nav>:first-child,
+  section>:first-child,
   footer>:first-child{
-    @apply px-5 max-w-7xl m-auto;
+    @apply px-5 max-w-7xl m-auto w-full;
+
+    
+    @screen md {
+      @apply px-7;
+    }
+
+    @screen lg {
+      @apply px-8;
+    }
+
+    @screen 2xl {
+      max-width: 1440px;
+    }
   }
 
   button {
-    @apply px-4 py-2 rounded-lg bg-slate-50 hover:bg-slate-100 active:bg-slate-100 hover:scale-105 active:scale-105 select-none transition-all ease-out duration-200;
-  }
-  button.primary {
-    @apply text-white bg-primary hover:bg-opacity-90 active:bg-opacity-90;
-  }
-  button.inline{
-    @apply hover:bg-slate-100 active:bg-slate-100 w-full;
-  }
-  
-  button[disabled] {
-    @apply bg-slate-300 text-gray-700;
-  }
+    @apply px-4 py-2 rounded-lg text-base hover:bg-slate-100 dark:hover:bg-slate-800 active:bg-slate-100 hover:scale-105 active:scale-105 select-none transition-all ease-out duration-200;
+
+    &.primary {
+      @apply text-white bg-primary hover:bg-opacity-90 dark:hover:bg-blue-900 active:bg-opacity-90;
+    }
+    &.inline{
+      @apply hover:bg-slate-100 active:bg-slate-100 w-full;
+    }
+    &[disabled] {
+      @apply bg-slate-300 text-gray-700;
+    }
+
+  }  
 
   input,textarea{
     @apply appearance-none border outline-none outline-offset-0  focus:outline-primary rounded py-2 px-3 text-gray-700 transition-all duration-300;
@@ -66,21 +102,17 @@ body{
 }
 
 
-.helloImg{
+.hello{
   position: absolute;
   top: -.3rem;
-  transform: translateX(.5rem);
-
-  @screen md{
-    top: -.55rem;
-  }
-}
-.helloImg >img{
   animation-name: wave-animation;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   transform-origin: 70% 70%;
 
+  @screen md{
+    top: -.55rem;
+  }
 }
 
 @keyframes wave-animation {
@@ -120,29 +152,30 @@ body{
 #toogle {
   @apply w-6 h-6 duration-200 cursor-pointer relative flex items-center justify-center;
 
+  &::before {
+    content: '';
+    height: 2px;
+    transform: translateY(-6px);
+    box-shadow: 0 6px 0;
+    @apply absolute bg-black dark:bg-white w-4 duration-200 shadow-black dark:shadow-white;
+  }
+  &.active::before {
+    transform: translateY(0) rotate(45deg);
+    box-shadow: 0 0 0 black;
+    @apply shadow-black dark:shadow-white;
+  }
+  &::after {
+    content: '';
+    height: 2px;
+    transform: translateY(6px);
+    @apply absolute bg-black dark:bg-white w-4 duration-200;
+  }
+  &.active::after {
+    @apply -rotate-45 translate-y-0;
+  }
 }
 
-#toogle::before {
-  content: '';
-  height: 2px;
-  transform: translateY(-6px);
-  box-shadow: 0 6px 0 black;
-  @apply absolute bg-black w-4 duration-200;
-}
-#toogle.active::before {
-  transform: translateY(0) rotate(45deg);
-  box-shadow: 0 0 0 black;  
-}
 
-#toogle::after {
-  content: '';
-  height: 2px;
-  transform: translateY(6px);
-  @apply absolute bg-black w-4 duration-200;
-}
-#toogle.active::after {
-  @apply -rotate-45 translate-y-0;
-}
 
 
 ::-webkit-scrollbar {

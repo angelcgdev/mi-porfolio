@@ -3,6 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Footer, Header } from "../components";
 import { useRef } from "react";
 import { WebContext } from "../context/web-context";
+import { ThemeProvider } from "next-themes";
 
 
 export const ContextStore = (props) => {
@@ -19,12 +20,16 @@ export const ContextStore = (props) => {
 const App = ({ Component, pageProps }) => {
 
   return (
-    <ContextStore>
-      <Header
-      />
-        <Component {...pageProps} />
-      <Footer/>
-    </ContextStore>
+    <ThemeProvider attribute="class">
+      <ContextStore>
+          <div className="gradient-circle"></div>
+          <Header
+          />
+            <Component {...pageProps} />
+          <Footer/>
+          <div className="gradient-circle-button"></div>
+      </ContextStore>
+    </ThemeProvider>
   );
 };
 
