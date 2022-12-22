@@ -96,7 +96,8 @@ body{
   }  
 
   input,textarea{
-    @apply appearance-none border outline-none outline-offset-0  focus:outline-primary rounded py-2 px-3 text-gray-700 transition-all duration-300;
+    @apply appearance-none  bg-transparent border-2 outline-none outline-offset-0  focus:border-primary rounded py-2 px-3 text-gray-700 transition-all duration-300;
+    @apply dark:border-gray-800 focus:dark:border-primary dark:text-gray-100;
   }
   
 }
@@ -150,14 +151,15 @@ body{
 }
 
 #toogle {
-  @apply w-6 h-6 duration-200 cursor-pointer relative flex items-center justify-center;
+  @apply w-6 h-6 cursor-pointer relative flex items-center justify-center;
 
   &::before {
     content: '';
     height: 2px;
     transform: translateY(-6px);
     box-shadow: 0 6px 0;
-    @apply absolute bg-black dark:bg-white w-4 duration-200 shadow-black dark:shadow-white;
+    color: inherit;
+    @apply absolute bg-black dark:bg-white w-4 text-black dark:text-white;
   }
   &.active::before {
     transform: translateY(0) rotate(45deg);
@@ -168,7 +170,7 @@ body{
     content: '';
     height: 2px;
     transform: translateY(6px);
-    @apply absolute bg-black dark:bg-white w-4 duration-200;
+    @apply absolute bg-black dark:bg-white w-4;
   }
   &.active::after {
     @apply -rotate-45 translate-y-0;
