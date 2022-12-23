@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Button from '../Button'
 import { useTheme } from 'next-themes';
 
 export const DarkBtn = () => {
@@ -19,7 +18,7 @@ export const DarkBtn = () => {
   
 
   return (
-    <Button className={`px-2 ${themeD==='dark'?'fill-black':'fill-white'}`} onClick={handleChangeTheme}>
+    <button type='button' className={`px-2 ${themeD==='dark'?'fill-black':'fill-white'}`} onClick={handleChangeTheme}>
       {
         themeD==='light'?(
           <svg id='light' className='h-6 w-min' xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -32,6 +31,6 @@ export const DarkBtn = () => {
         )
       }
 
-    </Button>
+    </button>
   )
 }

@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import Button from '../Button';
 import { WebContext } from '../../context/web-context';
 import { useRouter } from 'next/router';
 
-export const LinkButton = ({children, className, kind, href, elementRef, afterNavigate}) => {
+export const LinkButton = ({children, className, href, elementRef, afterNavigate}) => {
     
   const {navRef} = useContext(WebContext);
   const router = useRouter();
   
-  const handleScroll = ()=>{
+  const handleScroll = (e)=>{
+    e.preventDefault();
     router.push(href, undefined, { scroll: false});
     window.scrollTo({
       top: elementRef.current.offsetTop - navRef.current.offsetHeight,
@@ -19,7 +19,6 @@ export const LinkButton = ({children, className, kind, href, elementRef, afterNa
   };
 
   return (
-    <Button className={className} kind={kind} 
-    onClick={handleScroll}>{children}</Button>
+    <a href={href} role="button" className={className} onClick={handleScroll}>{children}</a>
   )
 }

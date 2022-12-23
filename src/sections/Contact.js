@@ -2,7 +2,7 @@ import { useFormik } from 'formik'
 import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify';
 import data from '../../yourData'
-import { Button, InputGroup, Loader, SectionDescription, SectionTitle, SectionWrapper, Socials } from '../components';
+import { InputGroup, Loader, SectionDescription, SectionTitle, SectionWrapper, Socials } from '../components';
 import { WebContext } from '../context/web-context';
 
 
@@ -91,13 +91,13 @@ export const ContactSection = (props) => {
           <InputGroup label='Message:' error={formik.errors.message}>
             <textarea className="resize-none" id="message" name="message" rows={3} onChange={formik.handleChange} value={formik.values.message} autoComplete="off"/>
           </InputGroup>
-          <Button className="flex gap-2 justify-center items-center min-w-0 w-min max-w-max transition-all duration-1000" isDisable={sended} kind="primary" bType="submit">
+          <button className="primary flex gap-2 justify-center items-center min-w-0 w-min max-w-max transition-all duration-1000" disabled={sended} type="submit">
             Send
             {
               isSending?
               <Loader/>:<></>
             }
-          </Button>
+          </button>
         </form>
         <div className="grid grid-cols-1 gap-4 place-content-center">
           <Socials  className="md:justify-center" />

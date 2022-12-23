@@ -1,14 +1,9 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import Button from '../components/Button';
 import Head from 'next/head';
+import { LinkButton } from '../components/LinkButton';
 
 export default function FourOhFour() {
-    const router = useRouter();
-    const handleClick =()=>{
-        router.push('/');
-    }
-
   return (
     <>
       <Head>
@@ -17,9 +12,7 @@ export default function FourOhFour() {
       </Head>
       <div className='h-screen flex  justify-center flex-col items-center'>
           <h1>404 - Page Not Found</h1>
-          <Button onClick={handleClick}>
-              Go back home
-          </Button>
+          <LinkButton  href="/">Go back home</LinkButton>
       </div>
     </>
   )

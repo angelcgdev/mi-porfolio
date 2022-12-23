@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const WorkCard = ({ img, name, description, slug }) => {
   return (
-    <Link key={name} href={ '/proyect/'+slug }>
+    <Link key={name} href={ '/proyect/'+slug } role="alert">
       <div
         className="overflow-hidden cursor-pointer select-none rounded-lg first:ml-0 transition-all ease-out duration-300 hover:scale-95 active:scale-95 border-gray-200 dark:border-gray-800" style={{borderWidth:1}} >
         <div
