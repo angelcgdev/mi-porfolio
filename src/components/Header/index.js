@@ -44,22 +44,20 @@ const Header = (props) => {
       hideRightOpt={hideRightOpt}
       onScroll={()=>setisOpen(false)}
       rightOptions={
-        // <div className="flex flex-row gap-2">
-        // </div>
           <ul className="flex gap-2">
-            <li className="hidden md:flex justify-center">
+            <li className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
               <LinkButton elementRef={aboutRef} href="#about">About</LinkButton>
             </li>
-            <li className="hidden md:flex justify-center">
+            <li className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
               <LinkButton elementRef={portfolioRef} href="#portfolio">Portfolio</LinkButton>
             </li>
-            <li className="hidden md:flex justify-center">
+            <li className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
               <LinkButton elementRef={contactRef} href="#contact" >Contact</LinkButton>
             </li>
             <li className="flex justify-center">
               <DarkBtn/>
             </li>
-            <li className="flex md:hidden justify-center">
+            <li className={`${hideRightOpt?'hidden':'flex'} md:hidden justify-center`}>
               <button role="menubar" className="sm:hidden" onClick={()=>handleClick()}>
                 <div id="toogle" className={isOpen?"active":""}></div>
               </button>

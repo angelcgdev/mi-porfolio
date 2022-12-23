@@ -33,7 +33,6 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
         onScroll&&onScroll();
       }
     }
-    
     isVisible(mainRef);
     isVisible(aboutRef);
     isVisible(portfolioRef);
@@ -43,15 +42,16 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
   
 
   const isVisible = (ref)=> {
-    var { top } = ref.current.getBoundingClientRect();
-    const id = ref.current.id;
-    if(top>0 && top<100){
-      setAnchor(id==='#main'?'':id)
+    var top = ref.current?.getBoundingClientRect().top;
+    if(top){
+      const id = ref.current.id;
+      if(top>0 && top<100){
+        setAnchor(id==='#main'?'':id)
+      }
     }
   }
   
   useEffect(() => {
-    console.log('changin tag')
     router.push(anchor, undefined, { scroll: false });  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [anchor])
