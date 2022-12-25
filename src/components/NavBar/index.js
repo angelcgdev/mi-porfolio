@@ -5,10 +5,12 @@ import { WebContext } from '../../context/web-context';
 
 export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = false, className, hideRightOpt, onScroll}) => {
   
-  const {mainRef, aboutRef, portfolioRef, contactRef} = useContext(WebContext);
+  const {mainRef, aboutRef, portfolioRef, contactRef, autoScroll} = useContext(WebContext);
   const [anchor, setAnchor] =  useState('');
   const [isOnTop, setIsOnTop] =  useState();
   const isOpenRef = useRef(isOpen);
+  const lastScrollTop = useRef(0);
+  const isDownRef = useRef(false);
   const heightExpanded = 156;
   const oscillation = 20;
   const range = (heightExpanded+oscillation)*2;
@@ -33,6 +35,8 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
         onScroll&&onScroll();
       }
     }
+    
+    isDownRef.current = isDown();
     isVisible(mainRef);
     isVisible(aboutRef);
     isVisible(portfolioRef);
@@ -42,17 +46,44 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
   
 
   const isVisible = (ref)=> {
-    var top = ref.current?.getBoundingClientRect().top;
-    if(top){
+    const top = ref.current?.getBoundingClientRect().top;
+    const bottom = ref.current?.getBoundingClientRect().bottom;
+    if(top && bottom){
       const id = ref.current.id;
-      if(top>0 && top<100){
-        setAnchor(id==='#main'?'':id)
+      if(isDownRef.current){
+        console.log('down');
+        const sHeight = ref.current.clientHeight;
+        const wheight = window.innerHeight;
+        const limitBotton = bottom - sHeight;
+        const minVisible = limitBotton + (sHeight*.5);
+        if(minVisible < wheight){
+          setAnchor(id==='#main'?'':id)
+        }
+      }else{
+        console.log('up');
+        if(top>0 && top<100){
+          setAnchor(id==='#main'?'':id)
+        }
       }
     }
   }
+
+  
+  function isDown(){
+    let st = window.scrollY;
+    if (st > lastScrollTop.current){
+      lastScrollTop.current = Math.floor(st, 0);
+      return true;
+    } else {
+      lastScrollTop.current = Math.floor(st, 0);
+      return false;
+    }
+ }
   
   useEffect(() => {
-    router.push(anchor, undefined, { scroll: false });  
+    if(autoScroll===false){
+      router.push(anchor, undefined, { scroll: false });
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [anchor])
   
@@ -74,7 +105,7 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
       window.removeEventListener("scroll", scrolling, { passive: true });
     }
   }, [scrolling]);
-  // ${isOnTop?'dark:bg-opacity-100':'dark:bg-opacity-0'}
+
   return (
     <nav className={`bg-white dark:bg-black  ${isOnTop||isOpen?'shadow-sm':''} ${styles.nav} ${!!className?className:''}`} ref={navRef}>
       <div className="h-10 flex items-center justify-between">
