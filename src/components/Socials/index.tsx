@@ -1,7 +1,11 @@
 import React from "react";
 import yourData from "../../../yourData";
 
-const Socials = ({ className }) => {
+interface Props{
+  className: string;
+}
+
+const Socials = ({ className }:Props) => {
   return (
     <div className={`${className} flex flex-wrap gap-2`}>
       {yourData.socials.map((social, index) => (

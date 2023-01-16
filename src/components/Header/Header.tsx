@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { NavBar } from "../NavBar";
-import { LinkButton } from "../LinkButton";
+import { useContext, useEffect, useState } from "react";
 import { WebContext } from "../../context/web-context";
-import { useRouter } from "next/router";
-import { DarkBtn } from "../DarkButton";
-const Header = (props) => {
+import { NavBar } from "../NavBar/NavBar";
+import { LinkButton } from "../LinkButton/index";
+import { useRouter } from 'next/router'
+import { DarkBtn } from "../DarkButton/DarkButton";
+const Header = () => {
   
   const {navRef, aboutRef, portfolioRef, contactRef} = useContext(WebContext);
   
@@ -69,7 +69,7 @@ const Header = (props) => {
           <li>
             <LinkButton
               className="flex justify-center hover:scale-100 active:scale-100"
-              kind="inline"
+              // kind="inline"
               elementRef={aboutRef}
               href="#about"
               afterNavigate={handleClick}
@@ -80,7 +80,7 @@ const Header = (props) => {
           <li>
             <LinkButton
               className="flex justify-center hover:scale-100 active:scale-100"
-              kind="inline"
+              // kind="inline"
               elementRef={portfolioRef}
               href="#portfolio"
               afterNavigate={handleClick}
@@ -91,7 +91,7 @@ const Header = (props) => {
           <li>
             <LinkButton
               className="flex justify-center hover:scale-100 active:scale-100"
-              kind="inline"
+              // kind="inline"
               elementRef={contactRef}
               href="#contact"
               afterNavigate={handleClick}

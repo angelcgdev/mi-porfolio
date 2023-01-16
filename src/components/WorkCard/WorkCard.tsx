@@ -1,18 +1,25 @@
 import React from "react";
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import Link from "next/link";
 
-const WorkCard = ({ img, name, description, slug }) => {
+interface Props{
+  img: string,
+  name: string,
+  description: string,
+  slug: string
+}
+
+const WorkCard = ({ img, name, description, slug }:Props) => {
   return (
-    <Link key={name} href={ '/proyect/'+slug } role="alert">
+    <Link key={name} href={ '/proyect/'+slug } role="alert" legacyBehavior>
       <div
-        className="overflow-hidden cursor-pointer select-none rounded-lg first:ml-0 transition-all ease-out duration-300 hover:scale-95 active:scale-95 border-gray-200 dark:border-gray-800" style={{borderWidth:1}} >
+        className="overflow-hidden cursor-pointer select-none rounded-lg transition-all ease-out duration-300 hover:scale-95 active:scale-95 border-slate-100 dark:border-gray-800 shadow-sm" style={{borderWidth:1}} >
         <div
           className="overflow-hidden w-full relative aspect-video"
           >
           <Image
             alt="project cover"
-            className="object-cover"
+            className="object-cover transition-all duration-300 bg-slate-100 dark:bg-slate-900"
             src={img}
             objectFit="cover" 
             layout="fill"

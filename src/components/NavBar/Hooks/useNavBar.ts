@@ -1,21 +1,25 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import styles from "./styles.module.scss";
+import { useCallback, useContext, useEffect, useRef, useState, MutableRefObject } from 'react';
 import { useRouter } from 'next/router';
-import { WebContext } from '../../context/web-context';
+import { WebContext } from '../../../context/web-context';
 
-export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = false, className, hideRightOpt, onScroll}) => {
-  
-  const {mainRef, aboutRef, portfolioRef, contactRef, autoScroll} = useContext(WebContext);
-  const [anchor, setAnchor] =  useState('');
-  const [isOnTop, setIsOnTop] =  useState();
-  const isOpenRef = useRef(isOpen);
-  const lastScrollTop = useRef(0);
-  const isDownRef = useRef(false);
+interface Props{
+    onScroll?: Function,
+    isOpen: boolean,
+}
+export const useNavBar = ({ isOpen, onScroll }:Props)=> {
+
   const heightExpanded = 156;
   const oscillation = 20;
   const range = (heightExpanded+oscillation)*2;
   const initValue=0;
+    
+  const {mainRef, aboutRef, portfolioRef, contactRef, autoScroll} = useContext(WebContext);
+  const [anchor, setAnchor] =  useState('');
+  const [isOnTop, setIsOnTop] =  useState(false);
   const router = useRouter();
+  const isOpenRef = useRef(isOpen);
+  const lastScrollTop = useRef(0);
+  const isDownRef = useRef(false);  
   const prevRef = useRef({limitLeft: getLimits(initValue, 'left'), current: initValue, limitRight: getLimits(initValue)});
 
   function getLimits(initialValue = 0, position='right'){
@@ -72,17 +76,23 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
   function isDown(){
     let st = window.scrollY;
     if (st > lastScrollTop.current){
-      lastScrollTop.current = Math.floor(st, 0);
+      lastScrollTop.current = Math.floor(st);
       return true;
     } else {
-      lastScrollTop.current = Math.floor(st, 0);
+      lastScrollTop.current = Math.floor(st);
       return false;
     }
  }
   
   useEffect(() => {
     if(autoScroll===false){
-      router.push(anchor, undefined, { scroll: false });
+      if(router.isReady){
+        router.push({pathname: '/', hash: anchor}, undefined, {scroll: false}).catch((e)=>{
+          if(!e.cancelled){
+            throw e
+          }
+        });
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [anchor])
@@ -102,21 +112,9 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
   useEffect(() => {
     window.addEventListener("scroll", scrolling, { passive: true });
     return () => {
-      window.removeEventListener("scroll", scrolling, { passive: true });
+      window.removeEventListener("scroll", scrolling );
     }
   }, [scrolling]);
 
-  return (
-    <nav className={`bg-white dark:bg-black  ${isOnTop||isOpen?'shadow-sm':''} ${styles.nav} ${!!className?className:''}`} ref={navRef}>
-      <div className="h-10 flex items-center justify-between">
-        <h1 className="font-bold cursor-pointer select-none" onClick={goHome}>AngelCgDev.</h1>
-        <div>
-          {rightOptions}
-        </div>
-      </div>
-      <div id="mobile-menu" className={`${hideRightOpt?'hidden':''} overflow-hidden transition-all duration-300 ${!isOpen?"max-h-0":"max-h-96"}`}>
-        {mobileMenu}
-      </div>
-    </nav>
-  )
+  return { isOnTop }
 }

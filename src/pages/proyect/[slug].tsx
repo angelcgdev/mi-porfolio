@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router';
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import { SectionTitle } from '../../components/Section/SectionTitle';
 import { SectionDescription } from '../../components/Section/SectionDescription';
 import { loadProyect } from '../../lib/load-proyect';

@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head'
 import { ToastContainer } from "react-toastify";
 import { About, ContactSection, PortfolioSection, Welcome, } from "../sections";
