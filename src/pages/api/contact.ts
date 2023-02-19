@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
+import { TLSSocket } from "tls";
 require('dotenv').config()
 
 interface Response{
@@ -12,8 +13,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
     const pass = process.env.password;
     const to = process.env.to;
     const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 465,
+        service: "Outlook365",
+        host: "smtp.office365.com",
+        port: 587,
         auth: {
           user,
           pass,
@@ -22,11 +24,16 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
       });
       
     const mailData:Mail.Options = {
-      from: req.body.email,
+      from: user,
       to: to,
-      subject: `${req.body.subjet} ${req.body.name}`,
+      subject: `${req.body.subjet} - MY WEBSITE`,
       text: req.body.message,
-      html: `<div>${req.body.message}</div>`
+      html: `<section>
+      <p>${req.body.message}</p>
+      <br/>
+      <p>Atte: ${req.body.name}</p>
+      <p>you can reply to ${req.body.email}</p>
+      </section>`
     };
 
     transporter.sendMail(mailData, function (err, info) {
