@@ -1,3 +1,21 @@
 .nav {
     @apply  mt-5 md:mt-10 py-3 sticky top-0 z-10 transition-all duration-200;
 }
+
+
+.image-container {
+    width: 100%;
+    display: flex;
+
+    >span {
+
+        position: unset;
+
+        >img {
+            object-fit: contain;
+            width: 100% !important;
+            position: relative;
+            height: unset !important;
+        }
+    }
+}

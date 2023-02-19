@@ -32,14 +32,11 @@ export default function Proyect (props) {
       </Head>
       <section>
         <div className='flex flex-col gap-4' style={{padding:0}}>
-          <div className=''>
+          <div className='image-container'>
               <Image
                 src={proyect.imageSrc}
                 alt="project cover"
-                width="100%"
-                height="60%"
-                layout="responsive"
-                objectFit="cover"
+                layout="fill"
               />
           </div>        
           <div className='px-5'>
