@@ -1,12 +1,45 @@
+import { ChangeEvent, ChangeEventHandler, HTMLInputTypeAttribute, ReactNode } from "react"
 
-export const InputGroup = ({children, label, error}) => {
+interface Props {
+  label: string;
+  error: string;
+  id: string;
+  type?: HTMLInputTypeAttribute | undefined;
+  isTextArea?: boolean;
+  imputClass?: string;
+  autoComplete?: string | undefined;
+  value?: string | ReadonlyArray<string> | number | undefined;
+  onChange?: (e: ChangeEvent)=> void;
+}
+export const InputGroup = ({label, error, id, type, isTextArea = false, imputClass, autoComplete, value, onChange }: Props) => {
+
+
+
   return (
-    <div className="flex flex-col">
       <label className="flex flex-col text-lg">
         {label}
-        {children}
+        {
+          (!isTextArea)
+          ?<input
+            id={id}
+            name={id}
+            type={type}
+            onChange={onChange}
+            value={value}
+            aria-describedby={`${id}-error`}
+            autoComplete={autoComplete}/>
+          :
+          <textarea
+            id={id}
+            name={id}
+            className={imputClass}
+            rows={3}
+            onChange={onChange}
+            value={value}
+            autoComplete={autoComplete}
+          />
+        }
+        <p id={`${id}-error`} role="alert" className={`text-lg text-red-500 ${!!error?'h-6':'h-0'} duration-300`}>{error}</p>
       </label>
-      <label className={`text-lg text-red-500 ${!!error?'h-6':'h-0'} duration-300`}>{error}</label>
-    </div>
   )
 }

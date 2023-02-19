@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/nodemailer": "^6.4.7",
     "dotenv": "^16.0.1",
     "formik": "^2.2.9",
     "next": "^13.1.2",

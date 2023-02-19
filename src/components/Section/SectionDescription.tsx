@@ -1,6 +1,11 @@
-import React from 'react'
+import { ReactNode } from 'react'
 
-export const SectionDescription = ({children, type}) => {
+interface Props {
+  children: ReactNode;
+  type?: 'full'
+}
+
+export const SectionDescription = ({children, type}: Props) => {
   if(type === 'full'){
     return (
       <p className="py-5 ml-0 text-lg select-none">{children}</p>
