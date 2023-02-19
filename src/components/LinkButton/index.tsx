@@ -6,7 +6,7 @@ import { useLinkButton } from './hooks/useLinkButton';
 interface Props{
   children: any,
   className?: string,
-  href: any,
+  href?: string | undefined,
   elementRef: any,
   afterNavigate?: Function,
 }
