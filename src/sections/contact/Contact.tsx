@@ -1,5 +1,5 @@
 import data from '../../../yourData'
-import { InputGroup, Loader, SectionDescription, SectionTitle, SectionWrapper, Socials } from '../../components';
+import { InputGroup, SectionDescription, SectionTitle, SectionWrapper, Socials } from '../../components';
 import { AsyncButton } from '../../components/AsynButton/AsyncButton';
 import { useContact } from './hooks/useContact';
 

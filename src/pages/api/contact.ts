@@ -34,11 +34,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
       replyTo: req.body.email,
       html: `
       <section style="background-color: #E7EAEF; padding: 10px;">
-        <div style="background-color: #FFFFFF; color: #000000; border-radius: 10px; padding 10px;">
+        <div style="background-color: #FFFFFF; color: #000000; border-radius: 10px; padding: 10px;">
           <p>${req.body.message}</p>
           <hr/>
           <p style="font-weight: bold; margin: 0; margin-bottom: 10px;">Atte: ${req.body.name}</p>
-          <p style="font-weight: bold; margin: 0;">Atte: ${req.body.email}</p>
+          <p>reply to ${req.body.email}</p>
         </div>
       </section>`
     };
