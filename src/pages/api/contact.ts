@@ -9,13 +9,16 @@ interface Response{
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Response> ) {
+    const service = process.env.SMTP_SERVICE;
+    const host = process.env.SMTP_HOST;
+    const port = parseInt(process.env.SMTP_PORT);
     const user = process.env.email;
     const pass = process.env.password;
     const to = process.env.to;
     const transporter = nodemailer.createTransport({
-        service: "Outlook365",
-        host: "smtp.office365.com",
-        port: 587,
+        service,
+        host,
+        port,
         auth: {
           user,
           pass,
@@ -25,21 +28,25 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
       
     const mailData:Mail.Options = {
       from: user,
-      to: to,
+      to,
       subject: `${req.body.subjet} - MY WEBSITE`,
       text: req.body.message,
-      html: `<section>
-      <p>${req.body.message}</p>
-      <br/>
-      <p>Atte: ${req.body.name}</p>
-      <p>you can reply to ${req.body.email}</p>
+      replyTo: req.body.email,
+      html: `
+      <section style="background-color: #E7EAEF; padding: 10px;">
+        <div style="background-color: #FFFFFF; color: #000000; border-radius: 10px; padding 10px;">
+          <p>${req.body.message}</p>
+          <hr/>
+          <p style="font-weight: bold; margin: 0; margin-bottom: 10px;">Atte: ${req.body.name}</p>
+          <p style="font-weight: bold; margin: 0;">Atte: ${req.body.email}</p>
+        </div>
       </section>`
     };
 
     transporter.sendMail(mailData, function (err, info) {
       if(err){
           console.log({error: err});
-          const { message, name, cause, stack } = err;
+          const { message } = err;
           res.status(535).send({ result: message });
       }
       else{

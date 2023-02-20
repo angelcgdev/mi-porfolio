@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, HTMLInputTypeAttribute, ReactNode } from "react"
+import { ChangeEvent, HTMLInputTypeAttribute, ReactNode } from "react"
 
 interface Props {
   label: string;
@@ -16,7 +16,7 @@ export const InputGroup = ({label, error, id, type, isTextArea = false, imputCla
 
 
   return (
-      <label className="flex flex-col text-lg">
+      <label className="flex flex-col text-lg gap-1">
         {label}
         {
           (!isTextArea)

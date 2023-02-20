@@ -1,48 +1,27 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { WebContext } from "../../context/web-context";
 import { NavBar } from "../NavBar/NavBar";
 import { LinkButton } from "../LinkButton/index";
-import { useRouter } from 'next/router'
 import { DarkBtn } from "../DarkButton/DarkButton";
+import { useHeader } from "./hooks/useHeader";
 const Header = () => {
   
   const {navRef, aboutRef, portfolioRef, contactRef} = useContext(WebContext);
-  
-  const router = useRouter();
-  const [isOpen, setisOpen] = useState(false);
-  const [hideRightOpt, setHideRightOpt] =  useState(true);
-  const handleClick = ()=>{
-    setisOpen(!isOpen);
-  }
-
-  const handleTopScroll = () => {
-    router.push('', undefined, { scroll: false });
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const back=()=> {
-    router.back();
-  }
-
-  
-  useEffect(() => {
-    if(router.asPath.includes('/#') || router.asPath==='/'){
-      setHideRightOpt(false);
-    }else{
-      setHideRightOpt(true);
-    }
-  }, [router.asPath]);
+  const {
+    handleMenuMobile,
+    isOpen,
+    closeMenu,
+    goBack,
+    goTop,
+    hideRightOpt
+  } = useHeader();
 
   return (
     <NavBar
       navRef={navRef}
-      goHome={!hideRightOpt?handleTopScroll:back}
+      goHome={!hideRightOpt?goTop:goBack}
       hideRightOpt={hideRightOpt}
-      onScroll={()=>setisOpen(false)}
+      onScroll={closeMenu}
       rightOptions={
           <ul className="flex gap-2">
             <li className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
@@ -58,7 +37,7 @@ const Header = () => {
               <DarkBtn/>
             </li>
             <li className={`${hideRightOpt?'hidden':'flex'} md:hidden justify-center`}>
-              <button role="menubar" className="sm:hidden" onClick={()=>handleClick()}>
+              <button role="menu" onClick={handleMenuMobile} aria-label="menu bar button">
                 <div id="toogle" className={isOpen?"active":""}></div>
               </button>
             </li>
@@ -69,10 +48,9 @@ const Header = () => {
           <li>
             <LinkButton
               className="flex justify-center hover:scale-100 active:scale-100"
-              // kind="inline"
               elementRef={aboutRef}
               href="#about"
-              afterNavigate={handleClick}
+              afterNavigate={handleMenuMobile}
               >
                 About
             </LinkButton>
@@ -80,10 +58,9 @@ const Header = () => {
           <li>
             <LinkButton
               className="flex justify-center hover:scale-100 active:scale-100"
-              // kind="inline"
               elementRef={portfolioRef}
               href="#portfolio"
-              afterNavigate={handleClick}
+              afterNavigate={handleMenuMobile}
             >
               Portfolio
             </LinkButton>
@@ -91,10 +68,9 @@ const Header = () => {
           <li>
             <LinkButton
               className="flex justify-center hover:scale-100 active:scale-100"
-              // kind="inline"
               elementRef={contactRef}
               href="#contact"
-              afterNavigate={handleClick}
+              afterNavigate={handleMenuMobile}
             >
               Contact
             </LinkButton>
