@@ -2,6 +2,7 @@ import { useCallback, useContext, useEffect, useRef } from 'react';
 import { WebContext } from '../../context/web-context';
 import { useRouter } from 'next/router';
 import { useLinkButton } from './hooks/useLinkButton';
+import Link from 'next/link';
 
 interface Props{
   children: any,
@@ -16,6 +17,6 @@ export const LinkButton = ({children, className, href, elementRef, afterNavigate
   const { scrollTo } = useLinkButton({ afterNavigate, elementRef, href});
 
   return (
-    <a href={href} role="button" className={className} onClick={scrollTo}>{children}</a>
+    <Link href={href} role="button" className={className} onClick={scrollTo}>{children}</Link>
   )
 }

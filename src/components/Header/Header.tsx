@@ -6,7 +6,7 @@ import { DarkBtn } from "../DarkButton/DarkButton";
 import { useHeader } from "./hooks/useHeader";
 const Header = () => {
   
-  const {navRef, aboutRef, portfolioRef, contactRef} = useContext(WebContext);
+  const {navRef, aboutRef, experienceRef, portfolioRef, contactRef} = useContext(WebContext);
   const {
     handleMenuMobile,
     isOpen,
@@ -16,6 +16,33 @@ const Header = () => {
     hideRightOpt
   } = useHeader();
 
+  const options = [
+    {
+      id: 1,
+      href: "#about",
+      name: "About",
+      ref: aboutRef
+    },
+    {
+      id: 2,
+      href: "#experience",
+      name: "Experience",
+      ref: experienceRef
+    },
+    {
+      id: 3,
+      href: "#portfolio",
+      name: "Portfolio",
+      ref: portfolioRef
+    },
+    {
+      id: 4,
+      href: "#contact",
+      name: "Contact",
+      ref: contactRef
+    },
+  ]
+
   return (
     <NavBar
       navRef={navRef}
@@ -24,15 +51,13 @@ const Header = () => {
       onScroll={closeMenu}
       rightOptions={
           <ul className="flex gap-2">
-            <li className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
-              <LinkButton elementRef={aboutRef} href="#about">About</LinkButton>
-            </li>
-            <li className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
-              <LinkButton elementRef={portfolioRef} href="#portfolio">Portfolio</LinkButton>
-            </li>
-            <li className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
-              <LinkButton elementRef={contactRef} href="#contact" >Contact</LinkButton>
-            </li>
+            {
+              options.map(({id, name, ref, href})=>(
+                <li key={`opt-${id}`} className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
+                  <LinkButton elementRef={ref} href={href}>{name}</LinkButton>
+                </li>
+              ))
+            }
             <li className="flex justify-center">
               <DarkBtn/>
             </li>
@@ -44,37 +69,21 @@ const Header = () => {
           </ul>
       }
       mobileMenu={
-        <ul className={`flex flex-col gap-2 sm:hidden p-5`}>
-          <li>
-            <LinkButton
-              className="flex justify-center hover:scale-100 active:scale-100"
-              elementRef={aboutRef}
-              href="#about"
-              afterNavigate={handleMenuMobile}
-              >
-                About
-            </LinkButton>
-          </li>
-          <li>
-            <LinkButton
-              className="flex justify-center hover:scale-100 active:scale-100"
-              elementRef={portfolioRef}
-              href="#portfolio"
-              afterNavigate={handleMenuMobile}
-            >
-              Portfolio
-            </LinkButton>
-          </li>
-          <li>
-            <LinkButton
-              className="flex justify-center hover:scale-100 active:scale-100"
-              elementRef={contactRef}
-              href="#contact"
-              afterNavigate={handleMenuMobile}
-            >
-              Contact
-            </LinkButton>
-          </li>
+        <ul className={`flex flex-col gap-2 md:hidden p-5`}>
+          {
+            options.map(({id, href, name, ref})=>(
+              <li key={`mobile-opt-${id}`}>
+                <LinkButton
+                  className="flex justify-center hover:scale-100 active:scale-100"
+                  elementRef={ref}
+                  href={href}
+                  afterNavigate={handleMenuMobile}
+                  >
+                    {name}
+                </LinkButton>
+              </li>
+            ))
+          }
         </ul>
       }
       isOpen={isOpen}

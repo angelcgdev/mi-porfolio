@@ -16,12 +16,12 @@ export const useHeader = ()=>{
     }
 
     const goTop = () => {
-        router.push('', undefined, { scroll: false });
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
+        // router.push('', undefined, { scroll: false });
+        // window.scrollTo({
+        //   top: 0,
+        //   left: 0,
+        //   behavior: "smooth",
+        // });
       };
 
     const closeMenu = ()=> setIsOpen(false);

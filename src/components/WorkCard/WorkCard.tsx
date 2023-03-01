@@ -13,7 +13,7 @@ const WorkCard = ({ img, name, description, slug }:Props) => {
   return (
     <Link key={name} href={ '/proyect/'+slug } role="alert" legacyBehavior>
       <div
-        className="overflow-hidden cursor-pointer select-none rounded-lg transition-all ease-out duration-300 hover:scale-95 active:scale-95 border-slate-100 dark:border-gray-800 shadow-sm" style={{borderWidth:1}} >
+        className="overflow-hidden cursor-pointer select-none rounded-lg transition-all ease-out duration-300 hover:scale-95 active:scale-95 border-slate-200 dark:border-gray-800 shadow-sm border-2">
         <div
           className="overflow-hidden w-full relative aspect-video"
           >

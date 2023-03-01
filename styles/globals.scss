@@ -97,6 +97,22 @@ body{
     @apply appearance-none  bg-transparent border-2 outline-none outline-offset-0  focus:border-primary rounded py-2 px-3 text-gray-700 transition-all duration-300;
     @apply dark:border-gray-800 focus:dark:border-primary dark:text-gray-100;
   }
+  ul.decorated{
+    li{
+      @apply flex gap-2;
+      &::before {
+        @apply text-primary text-xl;
+        content: "▹";
+        // background-color: red;
+        // width: 20px;
+        // height: 20px;
+      }
+    }
+  }
+
+  .description {
+    @apply text-gray-700 dark:text-slate-300 duration-300;
+  }
   
 }
 

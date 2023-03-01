@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router';
 import Image from "next/legacy/image";
 import { SectionTitle } from '../../components/Section/SectionTitle';
-import { SectionDescription } from '../../components/Section/SectionDescription';
+import { LeftSide } from '../../components/Section/SectionDescription';
 import { loadProyect } from '../../lib/load-proyect';
 import Head from 'next/head'
 import data from '../../../yourData';
@@ -42,9 +42,9 @@ export default function Proyect (props) {
           <div className='px-5'>
             <SectionTitle>{proyect.title}</SectionTitle>
             <SectionTools tools={proyect.tools}/>
-            <SectionDescription type='full'>
+            <LeftSide type='full'>
               {proyect.longDescription}
-            </SectionDescription>
+            </LeftSide>
           </div>
         </div>
       </section>

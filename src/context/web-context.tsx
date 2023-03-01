@@ -6,6 +6,7 @@ interface Props{
     aboutRef: MutableRefObject<undefined>,
     portfolioRef: MutableRefObject<undefined>,
     contactRef: MutableRefObject<undefined>,
+    experienceRef: MutableRefObject<undefined>,
     autoScroll: boolean,
     setAutoScroll: Function
 }
@@ -18,9 +19,10 @@ export const PortfolioProvider = (props) => {
     const aboutRef = useRef();
     const portfolioRef = useRef();
     const contactRef = useRef();
+    const experienceRef = useRef();
     const [autoScroll, setAutoScroll] = useState(false);
   
-    const value = { navRef, mainRef, aboutRef, portfolioRef, contactRef, autoScroll, setAutoScroll};
+    const value = { navRef, mainRef, aboutRef, portfolioRef, contactRef, autoScroll, setAutoScroll, experienceRef};
     
     
     return <WebContext.Provider value={value}>{props.children}</WebContext.Provider>;

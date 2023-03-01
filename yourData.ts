@@ -4,7 +4,7 @@ const data =  {
   name: "Angel",
   headerTaglineOne: "Hello ",
   headerTaglineTwo:
-    "I'm Angel CG - frontend developer from perú. ",
+    "I'm Luis Caro - frontend developer from perú. ",
 
   socials: [
     { title: "Github", link: "https://github.com/angelcgdev" },
@@ -104,9 +104,53 @@ const data =  {
   // End Services Section --------------------------
 
   // About Secton --------------
-  aboutpara: `Peruvian Frontend Developer with +2 years of experience, I have developed and maintained web and mobile applications using JavaScript, React, flutter, Firebase, NodeJs, MySQL along with other technologies, always motivated to help the team with my knowledge and experience.
+  aboutpara: `Peruvian Frontend Developer with +3 years of experience, I have developed and maintained web and mobile applications using JavaScript, React, flutter, Firebase, NodeJs, MySQL along with other technologies, always motivated to help the team with my knowledge and experience.
   I am a technology fanatic always motivated to learn new things and take on new challenges. I love discussing topics related to efficiency optimization and use of best practices. I would like to work on projects related to blockchain and intelligence.`,
+  technologies: [    
+    "JavaScript (ES6+)",
+    "TypeScript",
+    "React",
+    "React Native",
+    "Redux Toolkit",
+    "Flutter",
+  ],
   //   End About Section ---------------------
+  // Experience --------------------
+  experience:[
+    {
+      id: 3,
+      position: "Tech Coach",
+      company: "Talently",
+      range: "Febrary 2023 - Currently",
+      activities: [
+        "Mentoring 1:1 with developers of all levels.",
+        "Teach different technologies such as Javascript, TypeScript, React, flutter, Solid Principles."
+      ]
+    },
+    {
+      id: 2,
+      position: "Frontend developer",
+      company: "GRUPO EBIM",
+      range: "July 2022 - December 2022",
+      activities: [
+        "Improve previus implementations.",
+        "Make proposals for some customers.",
+        "Write clean code and test it."
+      ]
+    },
+    {
+      id: 1,
+      position: "Frontend developer",
+      company: "Cooporación Mallky",
+      range: "Octuber 2020 - Jun 2022",
+      activities: [
+        "Developed and maintained code.",
+        "Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and responsiveness.",
+        "Work with a variety of different languages, platforms, frameworks, and content management systems such as JavaScript, TypeScript, React, NextJs, Flutter."
+      ]
+    },
+  ],
+  // End Experience Section --------------------
   // Contact Secton --------------
   contactpara:
   "If you need to tell me something, contact me.",

@@ -30,13 +30,13 @@ export const useLinkButton = ({href, elementRef, afterNavigate})=>{
     },[asPath, setAutoScroll, href])
     
   
-    useEffect(() => {
-      window.addEventListener('scroll', detect, { passive: true });
-      return () => {
-        window.removeEventListener('scroll', detect);
-      }
+    // useEffect(() => {
+    //   window.addEventListener('scroll', detect, { passive: true });
+    //   return () => {
+    //     window.removeEventListener('scroll', detect);
+    //   }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [asPath, autoScroll])
+    // }, [asPath, autoScroll])
 
     return { scrollTo }
 

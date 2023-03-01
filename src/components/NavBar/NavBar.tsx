@@ -18,9 +18,9 @@ export const NavBar = ({navRef , goHome, mobileMenu, rightOptions, isOpen = fals
   const { isOnTop } = useNavBar({ isOpen, onScroll });
 
   return (
-    <nav className={`bg-white dark:bg-black shadow-sm ${isOnTop||isOpen?'dark:shadow-slate-900':'shadow-transparent'} ${styles.nav} ${!!className?className:''}`} ref={navRef}>
+    <nav className={`bg-white dark:bg-black ${isOnTop||isOpen?'dark:shadow-slate-900':'shadow-transparent'} ${styles.nav} ${!!className?className:''}`} ref={navRef}>
       <div className="h-10 flex items-center justify-between">
-        <h1 className="font-bold cursor-pointer select-none" onClick={goHome}>AngelCgDev.</h1>
+        <h1 className="font-bold cursor-pointer select-none" onClick={goHome}>LuisCaroDev</h1>
         <div>
           {rightOptions}
         </div>

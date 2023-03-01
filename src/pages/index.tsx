@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head'
 import { ToastContainer } from "react-toastify";
 import { About, ContactSection, PortfolioSection, Welcome, } from "../sections";
+import { Experience } from '../sections/Experience';
 
 export default function Home() {
 
@@ -12,7 +13,7 @@ export default function Home() {
         <meta name="description" content="my personal web site."/>
         <meta name="keywords" content="ui, frontend, developer, react, flutter, nextjs, javascript, typescript, programmer"/>
         <meta name="date" content="25/12/2022" />
-        <title>AngelCgDev</title>
+        <title>Luis Caro</title>
       </Head>
         <ToastContainer
           position="bottom-left"
@@ -22,6 +23,7 @@ export default function Home() {
         />
           <Welcome/>
           <About/>
+          <Experience/>
           <PortfolioSection/>
           <ContactSection/>
     </>
