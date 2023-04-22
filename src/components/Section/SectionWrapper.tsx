@@ -1,12 +1,15 @@
-import React from 'react';
+import { ReactNode, forwardRef, HtmlHTMLAttributes } from 'react';
 
-export const SectionWrapper = ({id, sRef, children}) => {
-
+interface SectionProps extends HtmlHTMLAttributes<HTMLElement> {
+  id: string,
+}
+// eslint-disable-next-line react/display-name
+export const SectionWrapper = forwardRef<HTMLElement, SectionProps>(({id, children, ...rest}, ref) => {
   return (
-    <section id={id} ref={sRef} className="pt-40 pb-5">
+    <section id={id} ref={ref} className="pt-40 pb-5" >
       <div>
         {children}
       </div>
     </section>
   )
-}
+});

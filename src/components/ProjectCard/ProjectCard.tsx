@@ -9,10 +9,10 @@ interface Props{
   slug: string
 }
 
-const WorkCard = ({ img, name, description, slug }:Props) => {
+const ProjectCard = ({ img, name, description, slug }:Props) => {
   return (
-    <Link key={name} href={ '/proyect/'+slug } role="alert" legacyBehavior>
-      <div
+    <Link key={name} href={ '/proyect/'+slug } role="link" aria-label={`Project ${name}`} legacyBehavior>
+      <article role="article"
         className="overflow-hidden cursor-pointer select-none rounded-lg transition-all ease-out duration-300 hover:scale-95 active:scale-95 border-slate-200 dark:border-gray-800 shadow-sm border-2">
         <div
           className="overflow-hidden w-full relative aspect-video"
@@ -26,18 +26,18 @@ const WorkCard = ({ img, name, description, slug }:Props) => {
           />
         </div>
         <div className="p-4">
-          <h1
+          <h3
             className="text-2xl font-medium"
           >
             {name ? name : "Project Name"}
-          </h1>
-          <h2 className="text-lg text-slate-600 dark:text-slate-300">
+          </h3>
+          <p className="text-lg text-slate-600 dark:text-slate-300">
             {description ? description : "Description"}
-          </h2>
+          </p>
         </div>
-      </div>
+      </article>
     </Link>
   );
 };
 
-export default WorkCard;
+export default ProjectCard;

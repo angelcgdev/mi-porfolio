@@ -53,13 +53,16 @@ body{
     --color-secondary: 107 107 248;
     --color-disabled: 229 231 235;
   }
+  :root[class="dark"]{
+    --color-primary: 57 107 255;
+  }
 }
 
 @layer components {
   nav>:first-child,
   section>:first-child,
   footer>:first-child{
-    @apply px-5 max-w-7xl m-auto w-full;
+    @apply px-5 max-w-5xl m-auto w-full;
 
     
     @screen md {
@@ -71,7 +74,7 @@ body{
     }
 
     @screen 2xl {
-      max-width: 1440px;
+      @apply max-w-5xl;
     }
   }
 
@@ -81,8 +84,8 @@ body{
     @apply dark:hover:bg-slate-800 dark:active:bg-slate-800;
 
     &.primary {
-      @apply text-white bg-primary hover:bg-opacity-90 active:bg-opacity-90;
-      @apply dark:hover:bg-blue-900 dark:active:bg-blue-900;
+      @apply text-white bg-primary hover:bg-opacity-95 active:bg-opacity-95;
+      @apply dark:hover:bg-blue-600 dark:active:bg-blue-600;
     }
     &.inline{
       @apply hover:bg-slate-100 active:bg-slate-100 w-full;

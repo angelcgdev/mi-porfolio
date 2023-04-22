@@ -6,9 +6,9 @@ import { WebContext } from '../context/web-context';
 export const About = () => {
   const {aboutRef} = useContext(WebContext);
   return (
-    <SectionWrapper id="#about" sRef={aboutRef}>
+    <SectionWrapper id="#about" ref={aboutRef}>
         <SectionTitle>About me.</SectionTitle>
-        <LeftSide>
+        <div>
           <p className='mb-4 description'>
             {data.aboutpara}
           </p>
@@ -22,7 +22,7 @@ export const About = () => {
               ))
             }
           </ul>
-        </LeftSide>
+        </div>
     </SectionWrapper>
   )
 }

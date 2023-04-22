@@ -7,7 +7,7 @@ import { useContact } from './hooks/useContact';
 export const ContactSection = () => {
   const { contactRef, formik, isSending, sended } = useContact();
   return (
-    <SectionWrapper id="#contact" sRef={contactRef}>
+    <SectionWrapper id="#contact" ref={contactRef}>
       <SectionTitle>Contact me.</SectionTitle>
       <p className='py-5 text-lg description'>
       {data.contactpara}

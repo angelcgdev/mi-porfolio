@@ -10,4 +10,4 @@ export * from './Section/SectionTitle';
 export * from './Section/SectionTools';
 export * from './Section/SectionWrapper';
 export { default as Socials } from './Socials';
-export { default as WorkCard } from './WorkCard/WorkCard';
+export { default as ProjectCard } from './ProjectCard/ProjectCard';
