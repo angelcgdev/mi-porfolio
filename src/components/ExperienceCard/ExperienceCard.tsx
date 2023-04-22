@@ -14,7 +14,7 @@ export const ExperienceCard = ({ experience }:{experience: Experience}) => {
       <div>
         <h3 className='font-medium'>
           {position}
-          <span className='text-primary'>{company}</span>
+          <span className='text-primary'> {company}</span>
         </h3>
         <p className='text-sm'>{ range }</p>
       </div>
