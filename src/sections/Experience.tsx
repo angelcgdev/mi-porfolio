@@ -8,7 +8,7 @@ export const Experience = () => {
     const {experienceRef} = useContext(WebContext);
 
   return (
-    <SectionWrapper id="#experience" sRef={experienceRef}>
+    <SectionWrapper id="#experience" ref={experienceRef}>
         <SectionTitle>Where I’ve Worked</SectionTitle>
           <ul className='mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3'>
               {data.experience.map((experience) =>(
