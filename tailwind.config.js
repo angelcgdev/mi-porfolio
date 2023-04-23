@@ -1,5 +1,6 @@
 
 const plugin = require('tailwindcss/plugin');
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 const hoverPlugin = plugin(function({ addVariant, e, postcss }) {
     addVariant('hover', ({ container, separator }) => {
@@ -34,7 +35,10 @@ module.exports = {
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
         disabled: 'rgb(var(--color-disabled) / <alpha-value>)',
         borderc: 'rgb(var(--color-border) / <alpha-value>)',
-      }
+      },
+      fontFamily: {
+        sans: ['var(--font-poppins)', ...fontFamily.sans],
+      },
     },
   },
   variants: {

@@ -3,6 +3,7 @@ import data from '../../yourData';
 import { Socials } from '../components';
 import { WebContext } from '../context/web-context';
 import { NextSection } from '../components/LinkButton/NextSection';
+import Link from 'next/link';
 
 export const Welcome = () => {
   
@@ -14,7 +15,7 @@ export const Welcome = () => {
           <h1 className="text-4xl md:text-6xl text-primary uppercase font-bold">
               {data.name}
           </h1>
-          <h2 className='text-xl'>{data.role}</h2>
+          <h2 className='description text-body'>{data.role}</h2>
           <div className='flex gap-2 items-center'>
             <svg className='w-4 h-4 text-primary' fill="currentColor" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 297 297">
@@ -24,10 +25,10 @@ export const Welcome = () => {
               C262.489,51.136,211.354,0,148.5,0z M148.5,72.682c22.777,0,41.308,18.53,41.308,41.308c0,22.777-18.53,41.309-41.308,41.309
               c-22.777,0-41.308-18.531-41.308-41.309C107.192,91.212,125.723,72.682,148.5,72.682z"/>
             </svg>
-            <h2 className='text-xl'>{data.location}</h2>
+            <h2 className='description text-body'>{data.location}</h2>
           </div>
           <Socials className="mt-2" />
-          <button className='primary w-min'>Resume</button>
+          <Link href="/resume" role='button' aria-label='go to my resume' className='primary w-min'>Resume</Link>
         </div>
         <NextSection className='self-center sticky bottom-0 z-[5] mt-auto' href='/#about'/>
       </div>

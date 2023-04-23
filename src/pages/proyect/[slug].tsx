@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouter } from 'next/router';
 import Image from "next/legacy/image";
 import { SectionTitle } from '../../components/Section/SectionTitle';
 import { LeftSide } from '../../components/Section/SectionDescription';
@@ -18,10 +17,6 @@ export default function Proyect (props) {
     longDescription: proyect?.longDescription??"Long Description",
     imageSrc: proyect?.imageSrc??"https://images.unsplash.com/photo-1622929611233-bd6d58cbd4dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
     slug: proyect?.slug??"slug",
-  }
-  const router = useRouter();
-  const handleHome = ()=>{
-    router.back();
   }
 
   return (

@@ -10,7 +10,7 @@ interface Props{
   afterNavigate?: Function,
 }
 export const useLinkButton = ({href, afterNavigate}: Props)=>{
-    const {navRef, setAutoScroll, autoScroll, aboutRef, contactRef, experienceRef, mainRef, portfolioRef} = useContext(WebContext);
+    const {navRef, setAutoScroll, aboutRef, contactRef, experienceRef, mainRef, portfolioRef} = useContext(WebContext);
     
     const searchRef = (href: typeSection| String)=>{
       switch (href) {
@@ -51,15 +51,6 @@ export const useLinkButton = ({href, afterNavigate}: Props)=>{
       }
     },[asPath, setAutoScroll, href])
     
-  
-    // useEffect(() => {
-    //   window.addEventListener('scroll', detect, { passive: true });
-    //   return () => {
-    //     window.removeEventListener('scroll', detect);
-    //   }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [asPath, autoScroll])
-
     return { scrollTo, elementRef }
 
 }

@@ -1,5 +1,5 @@
 import { MutableRefObject } from 'react';
-import styles from "./styles.module.scss";
+import styles from "./NavBar.module.scss";
 import { useNavBar } from './Hooks/useNavBar';
 
 interface Props{

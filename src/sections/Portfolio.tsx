@@ -8,17 +8,18 @@ export const PortfolioSection = (props) => {
   return (
     <SectionWrapper id="#portfolio" ref={portfolioRef}>
       <SectionTitle>Portfolio.</SectionTitle>
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            img={project.imageSrc}
-            name={project.title}
-            description={project.description}
-            slug={project.slug}
-          />
+          <li key={index}>
+            <ProjectCard
+              img={project.imageSrc}
+              name={project.title}
+              description={project.description}
+              slug={project.slug}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     </SectionWrapper>
   )
 }
