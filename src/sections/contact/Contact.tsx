@@ -9,7 +9,7 @@ export const ContactSection = () => {
   return (
     <SectionWrapper id="#contact" ref={contactRef}>
       <SectionTitle>Contact me.</SectionTitle>
-      <p className='py-5 text-lg description'>
+      <p className='py-5 text-body description'>
       {data.contactpara}
       </p>
       <div className="md:mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">

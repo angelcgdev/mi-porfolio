@@ -1,18 +1,13 @@
-import { useCallback, useContext, useEffect, useRef } from 'react';
+import { MutableRefObject, ReactNode, useCallback, useContext, useEffect, useRef } from 'react';
 import { WebContext } from '../../context/web-context';
 import { useRouter } from 'next/router';
 import { useLinkButton } from './hooks/useLinkButton';
 import Link from 'next/link';
+import { LinkButtonProps } from './model/linkButton';
 
-interface Props{
-  children: any,
-  className?: string,
-  href?: string | undefined,
-  elementRef: any,
-  afterNavigate?: Function,
-}
 
-export const LinkButton = ({children, className, href, elementRef, afterNavigate}: Props) => {
+
+export const LinkButton = ({children, className, href, elementRef, afterNavigate}: LinkButtonProps) => {
 
   const { scrollTo } = useLinkButton({ afterNavigate, elementRef, href});
 

@@ -7,10 +7,10 @@ interface Experience {
     range: string,
     activities: string[]
 }
-export const ExperienceCard = ({ experience }:{experience: Experience}) => {
+export const  ExperienceCard = ({ experience }:{experience: Experience}) => {
     const { activities, company, id, position, range } = experience;
   return (
-    <article role="article">
+    <article role="article" className='items-start text-body p-4 border-borderc border-2 rounded-md duration-300'>
       <div>
         <h3 className='font-medium'>
           {position}

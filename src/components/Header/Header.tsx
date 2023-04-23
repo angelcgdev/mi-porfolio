@@ -4,6 +4,8 @@ import { NavBar } from "../NavBar/NavBar";
 import { LinkButton } from "../LinkButton/index";
 import { DarkBtn } from "../DarkButton/DarkButton";
 import { useHeader } from "./hooks/useHeader";
+import { typeSection } from "../../models/section.model";
+import { menuOptions } from "../../datSource/memuOptions";
 const Header = () => {
   
   const {navRef, aboutRef, experienceRef, portfolioRef, contactRef} = useContext(WebContext);
@@ -16,32 +18,19 @@ const Header = () => {
     hideRightOpt
   } = useHeader();
 
-  const options = [
-    {
-      id: 1,
-      href: "#about",
-      name: "About",
-      ref: aboutRef
-    },
-    {
-      id: 2,
-      href: "#experience",
-      name: "Experience",
-      ref: experienceRef
-    },
-    {
-      id: 3,
-      href: "#portfolio",
-      name: "Portfolio",
-      ref: portfolioRef
-    },
-    {
-      id: 4,
-      href: "#contact",
-      name: "Contact",
-      ref: contactRef
-    },
-  ]
+  const getRefByHref = (href: typeSection)  => {
+    switch (href) {
+      case '#about':
+        return aboutRef;
+      case '#experience':
+        return experienceRef;
+      case '#portfolio':
+        return portfolioRef;
+      case '#contact':
+        return contactRef;
+    
+    }
+  }
 
   return (
     <NavBar
@@ -52,9 +41,9 @@ const Header = () => {
       rightOptions={
           <ul className="flex gap-2">
             {
-              options.map(({id, name, ref, href})=>(
-                <li key={`opt-${id}`} className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
-                  <LinkButton elementRef={ref} href={href}>{name}</LinkButton>
+              menuOptions.map(({name, href}, i)=>(
+                <li key={`opt-${i}`} className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
+                  <LinkButton elementRef={getRefByHref(href)} href={href}>{name}</LinkButton>
                 </li>
               ))
             }
@@ -71,11 +60,11 @@ const Header = () => {
       mobileMenu={
         <ul className={`flex flex-col gap-2 md:hidden p-5`}>
           {
-            options.map(({id, href, name, ref})=>(
-              <li key={`mobile-opt-${id}`}>
+            menuOptions.map(({href, name }, i)=>(
+              <li key={`mobile-opt-${i}`}>
                 <LinkButton
                   className="flex justify-center hover:scale-100 active:scale-100"
-                  elementRef={ref}
+                  elementRef={getRefByHref(href)}
                   href={href}
                   afterNavigate={handleMenuMobile}
                   >

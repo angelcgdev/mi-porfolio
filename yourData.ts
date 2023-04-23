@@ -1,10 +1,12 @@
 const data =  {
 
   //   Header Details ---------------------
-  name: "Angel",
-  headerTaglineOne: "Hello ",
-  headerTaglineTwo:
-    "I'm Luis Caro - frontend developer from perú. ",
+  // name: "Angel",
+  // headerTaglineOne: "Hello",
+  name: "Luis Caro",
+  role: "Frontend and mobile developer",
+  location: "Lima - Perú",
+
 
   socials: [
     { title: "Github", link: "https://github.com/angelcgdev" },

@@ -3,10 +3,10 @@ import { MutableRefObject, createContext, useRef, useState } from "react";
 interface Props{
     navRef: MutableRefObject<HTMLElement>,
     mainRef: MutableRefObject<HTMLElement>,
-    aboutRef: MutableRefObject<undefined>,
-    portfolioRef: MutableRefObject<undefined>,
-    contactRef: MutableRefObject<undefined>,
-    experienceRef: MutableRefObject<undefined>,
+    aboutRef: MutableRefObject<HTMLElement>,
+    portfolioRef: MutableRefObject<HTMLElement>,
+    contactRef: MutableRefObject<HTMLElement>,
+    experienceRef: MutableRefObject<HTMLElement>,
     autoScroll: boolean,
     setAutoScroll: Function
 }
@@ -14,12 +14,12 @@ interface Props{
 export const WebContext = createContext<Props>(null);
 
 export const PortfolioProvider = (props) => {
-    const navRef = useRef();
-    const mainRef = useRef();
-    const aboutRef = useRef();
-    const portfolioRef = useRef();
-    const contactRef = useRef();
-    const experienceRef = useRef();
+    const navRef = useRef<HTMLElement>();
+    const mainRef = useRef<HTMLElement>();
+    const aboutRef = useRef<HTMLElement>();
+    const portfolioRef = useRef<HTMLElement>();
+    const contactRef = useRef<HTMLElement>();
+    const experienceRef = useRef<HTMLElement>();
     const [autoScroll, setAutoScroll] = useState(false);
   
     const value = { navRef, mainRef, aboutRef, portfolioRef, contactRef, autoScroll, setAutoScroll, experienceRef};

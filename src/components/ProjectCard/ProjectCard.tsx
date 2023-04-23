@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import styles from './ProjectCard.module.scss';
 
 interface Props{
   img: string,
@@ -11,9 +12,9 @@ interface Props{
 
 const ProjectCard = ({ img, name, description, slug }:Props) => {
   return (
-    <Link key={name} href={ '/proyect/'+slug } role="link" aria-label={`Project ${name}`} legacyBehavior>
+    <Link key={name} href={ '/proyect/'+slug } role="link" aria-label={`Project ${name}`}>
       <article role="article"
-        className="overflow-hidden cursor-pointer select-none rounded-lg transition-all ease-out duration-300 hover:scale-95 active:scale-95 border-slate-200 dark:border-gray-800 shadow-sm border-2">
+        className={styles.wrapper}>
         <div
           className="overflow-hidden w-full relative aspect-video"
           >
@@ -27,11 +28,11 @@ const ProjectCard = ({ img, name, description, slug }:Props) => {
         </div>
         <div className="p-4">
           <h3
-            className="text-2xl font-medium"
+            className="text-lg md:text-xl  xl:text-2xl font-medium"
           >
             {name ? name : "Project Name"}
           </h3>
-          <p className="text-lg text-slate-600 dark:text-slate-300">
+          <p className="text-body text-slate-600 dark:text-slate-300">
             {description ? description : "Description"}
           </p>
         </div>

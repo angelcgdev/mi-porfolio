@@ -33,6 +33,7 @@ module.exports = {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
         disabled: 'rgb(var(--color-disabled) / <alpha-value>)',
+        borderc: 'rgb(var(--color-border) / <alpha-value>)',
       }
     },
   },

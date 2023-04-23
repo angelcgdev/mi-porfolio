@@ -30,16 +30,25 @@
   @include minimalGradient();
 }
 
-body{
-  font-size: 14px;
-  @apply bg-white dark:bg-black transition-all duration-200;
+html {
+  @apply w-full h-full overflow-auto;
+}
 
+body{
+  @apply bg-white dark:bg-black transition-all duration-200;
+  .text-body {
+    @apply text-sm;
+  }
   @screen md{
-    font-size: 16px;
+    .text-body {
+      @apply text-base;
+    }
   }
 
   @screen lg{
-    font-size: 18px;
+    .text-body {
+      @apply text-lg
+    }
   }
   >:first-child{
     position: relative;
@@ -52,9 +61,12 @@ body{
     --color-primary: 30 64 175;
     --color-secondary: 107 107 248;
     --color-disabled: 229 231 235;
+    --color-border: 204 214 229;
+    --app-height: 100%;
   }
   :root[class="dark"]{
     --color-primary: 57 107 255;
+    --color-border: 31 41 55;
   }
 }
 
@@ -80,11 +92,11 @@ body{
 
   button,
   [role="button"] {
-    @apply px-4 py-2 rounded-lg text-base hover:bg-slate-100 active:bg-slate-100 hover:scale-105 active:scale-105 select-none transition-all ease-out duration-200;
+    @apply px-4 py-2 rounded-lg text-base hover:bg-slate-100 active:bg-slate-100 hover:scale-x-105 active:scale-x-105 select-none transition-all ease-out duration-200;
     @apply dark:hover:bg-slate-800 dark:active:bg-slate-800;
-
+    
     &.primary {
-      @apply text-white bg-primary hover:bg-opacity-95 active:bg-opacity-95;
+      @apply px-6 text-white bg-primary hover:bg-opacity-95 active:bg-opacity-95;
       @apply dark:hover:bg-blue-600 dark:active:bg-blue-600;
     }
     &.inline{
@@ -98,7 +110,7 @@ body{
 
   input,textarea{
     @apply appearance-none  bg-transparent border-2 outline-none outline-offset-0  focus:border-primary rounded py-2 px-3 text-gray-700 transition-all duration-300;
-    @apply dark:border-gray-800 focus:dark:border-primary dark:text-gray-100;
+    @apply border-borderc focus:dark:border-primary dark:text-gray-100;
   }
   ul.decorated{
     li{
@@ -106,9 +118,6 @@ body{
       &::before {
         @apply text-primary text-xl;
         content: "▹";
-        // background-color: red;
-        // width: 20px;
-        // height: 20px;
       }
     }
   }

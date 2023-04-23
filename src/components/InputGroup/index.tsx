@@ -16,7 +16,7 @@ export const InputGroup = ({label, error, id, type, isTextArea = false, imputCla
 
 
   return (
-      <label className="flex flex-col text-lg gap-1">
+      <label className="flex flex-col  text-body gap-1">
         {label}
         {
           (!isTextArea)
@@ -39,7 +39,7 @@ export const InputGroup = ({label, error, id, type, isTextArea = false, imputCla
             autoComplete={autoComplete}
           />
         }
-        <p id={`${id}-error`} role="alert" className={`text-lg text-red-500 ${!!error?'h-6':'h-0'} duration-300`}>{error}</p>
+        <p id={`${id}-error`} role="alert" className={`text-body text-red-500 ${!!error?'h-6':'h-0'} duration-300`}>{error}</p>
       </label>
   )
 }
