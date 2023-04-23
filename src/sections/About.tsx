@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
 import data from '../../yourData'
-import { LeftSide,SectionTitle, SectionWrapper } from '../components';
+import { SectionTitle, SectionWrapper } from '../components';
 import { WebContext } from '../context/web-context';
-import { NextSection } from '../components/LinkButton/NextSection';
 
 export const About = () => {
   const {aboutRef, experienceRef} = useContext(WebContext);

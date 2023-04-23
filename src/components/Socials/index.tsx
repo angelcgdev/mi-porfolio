@@ -1,6 +1,5 @@
 import React from "react";
 import yourData from "../../../yourData";
-import { LinkButton } from "../LinkButton";
 
 interface Props{
   className: string;

@@ -43,7 +43,7 @@ const Header = () => {
             {
               menuOptions.map(({name, href}, i)=>(
                 <li key={`opt-${i}`} className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
-                  <LinkButton elementRef={getRefByHref(href)} href={href}>{name}</LinkButton>
+                  <LinkButton href={href}>{name}</LinkButton>
                 </li>
               ))
             }
@@ -64,7 +64,6 @@ const Header = () => {
               <li key={`mobile-opt-${i}`}>
                 <LinkButton
                   className="flex justify-center hover:scale-100 active:scale-100"
-                  elementRef={getRefByHref(href)}
                   href={href}
                   afterNavigate={handleMenuMobile}
                   >

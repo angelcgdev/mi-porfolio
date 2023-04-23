@@ -7,9 +7,9 @@ import { LinkButtonProps } from './model/linkButton';
 
 
 
-export const LinkButton = ({children, className, href, elementRef, afterNavigate}: LinkButtonProps) => {
+export const LinkButton = ({children, className, href, afterNavigate}: LinkButtonProps) => {
 
-  const { scrollTo } = useLinkButton({ afterNavigate, elementRef, href});
+  const { scrollTo } = useLinkButton({ afterNavigate, href});
 
   return (
     <Link href={href} role="button" className={className} onClick={scrollTo}>{children}</Link>
