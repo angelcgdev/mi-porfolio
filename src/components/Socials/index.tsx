@@ -1,17 +1,24 @@
 import React from "react";
 import yourData from "../../../yourData";
+import Link from "next/link";
 
-interface Props{
+interface Props {
   className: string;
 }
 
-const Socials = ({ className }:Props) => {
+const Socials = ({ className }: Props) => {
   return (
     <div className={`${className} flex flex-wrap gap-2`}>
       {yourData.socials.map((social, index) => (
-        <a key={index} href={social.link} role="button" target="button">
+        <Link
+          key={index}
+          href={social.link}
+          className="button"
+          role="button"
+          target="button"
+        >
           {social.title}
-        </a>
+        </Link>
       ))}
     </div>
   );
