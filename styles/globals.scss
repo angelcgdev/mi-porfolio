@@ -58,14 +58,14 @@ body{
 
 @layer base {
   :root{
-    --color-primary: 30 64 175;
+    --color-primary: #{30} #{64} #{175};
     --color-secondary: 107 107 248;
     --color-disabled: 229 231 235;
     --color-border: 204 214 229;
     --app-height: 100%;
   }
   :root[class="dark"]{
-    --color-primary: 57 107 255;
+    --color-primary: #{57} #{107} #{255};
     --color-border: 31 41 55;
   }
 }
