@@ -107,7 +107,7 @@ body {
   }
   button.next,
   [role="button"].next {
-    @apply flex h-14 w-16 items-center justify-center rounded-lg transition-all  duration-200 ease-out active:bg-slate-200 hover:bg-slate-200 active:dark:bg-slate-900 hover:dark:bg-slate-900;
+    @apply flex items-center justify-center rounded-lg p-2 transition-all  duration-200 ease-out active:backdrop-blur-sm hover:backdrop-blur-sm active:dark:bg-slate-900 hover:dark:bg-slate-900;
   }
 
   input,
