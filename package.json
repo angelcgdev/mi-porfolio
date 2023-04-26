@@ -2,7 +2,7 @@
   "name": "mi-portfolio",
   "version": "0.1.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^13.3.1",
     "@types/nodemailer": "^6.4.7",
     "dotenv": "^16.0.1",
     "formik": "^2.2.9",

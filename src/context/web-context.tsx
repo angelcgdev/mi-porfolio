@@ -14,15 +14,15 @@ interface Props{
 export const WebContext = createContext<Props>(null);
 
 export const PortfolioProvider = (props) => {
-    const navRef = useRef<HTMLElement>();
-    const mainRef = useRef<HTMLElement>();
-    const aboutRef = useRef<HTMLElement>();
-    const portfolioRef = useRef<HTMLElement>();
-    const contactRef = useRef<HTMLElement>();
-    const experienceRef = useRef<HTMLElement>();
+    const navRef = useRef<HTMLElement>(undefined);
+    const mainRef = useRef<HTMLElement>(null);
+    const aboutRef = useRef<HTMLElement>(null);
+    const portfolioRef = useRef<HTMLElement>(null);
+    const contactRef = useRef<HTMLElement>(null);
+    const experienceRef = useRef<HTMLElement>(null);
     const [autoScroll, setAutoScroll] = useState(false);
   
-    const value = { navRef, mainRef, aboutRef, portfolioRef, contactRef, autoScroll, setAutoScroll, experienceRef};
+    const value:Props = { navRef, mainRef, aboutRef, portfolioRef, contactRef, autoScroll, setAutoScroll, experienceRef};
     
     
     return <WebContext.Provider value={value}>{props.children}</WebContext.Provider>;

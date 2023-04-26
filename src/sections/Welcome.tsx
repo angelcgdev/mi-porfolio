@@ -5,7 +5,7 @@ import { WebContext } from "../context/web-context";
 import { NextSection } from "../components/LinkButton/NextSection";
 import Link from "next/link";
 
-export const Welcome = () => {
+export function Welcome() {
   const { mainRef } = useContext(WebContext);
   return (
     <section
@@ -57,4 +57,4 @@ export const Welcome = () => {
       </div>
     </section>
   );
-};
+}
