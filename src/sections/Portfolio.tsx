@@ -3,7 +3,7 @@ import data from '../../yourData';
 import { SectionTitle, SectionWrapper, ProjectCard } from '../components';
 import { WebContext } from '../context/web-context';
 
-export const PortfolioSection = (props) => {
+export const PortfolioSection = () => {
   const {portfolioRef} = useContext(WebContext);
   return (
     <SectionWrapper id="#portfolio" ref={portfolioRef}>

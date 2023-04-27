@@ -24,14 +24,6 @@ module.exports = {
     "./src/sections/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
-  // purge: {
-  //   enabled: true,
-  //   content: ['./src/**/*.js'],
-  //   options: {
-  //     safelist: ['dark'],
-  //   },
-  // },
-  // important: "#app",
   theme: {
     extend: {
       colors: {

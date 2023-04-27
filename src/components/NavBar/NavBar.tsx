@@ -1,15 +1,15 @@
-import { MutableRefObject } from 'react';
+import { MutableRefObject, ReactNode } from 'react';
 import styles from "./NavBar.module.scss";
 import { useNavBar } from './Hooks/useNavBar';
 
 interface Props{
   navRef: MutableRefObject<HTMLElement>,
-  goHome,
-  mobileMenu,
-  rightOptions,
+  goHome: ()=>void,
+  mobileMenu: ReactNode,
+  rightOptions: ReactNode,
   isOpen?:boolean,
   className?: string,
-  hideRightOpt,
+  hideRightOpt: boolean,
   onScroll?: Function,
 }
 

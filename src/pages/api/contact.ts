@@ -2,16 +2,17 @@ import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 import { TLSSocket } from "tls";
-require('dotenv').config()
+import * as dotenv from 'dotenv';
 
 interface Response{
   result: string;
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Response> ) {
+    dotenv.config();
     const service = process.env.SMTP_SERVICE;
     const host = process.env.SMTP_HOST;
-    const port = parseInt(process.env.SMTP_PORT);
+    const port = parseInt(process.env.SMTP_PORT??'');
     const user = process.env.email;
     const pass = process.env.password;
     const to = process.env.to;
