@@ -1,2 +1,1 @@
-
-export type typeSection ="#about" | "#experience" | "#portfolio" |"#contact" | String;
+export type typeSection = "#about" | "#experience" | "#portfolio" | "#contact";

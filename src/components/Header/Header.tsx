@@ -7,71 +7,73 @@ import { useHeader } from "./hooks/useHeader";
 import { typeSection } from "../../models/section.model";
 import { menuOptions } from "../../datSource/memuOptions";
 const Header = () => {
-  
-  const {navRef, aboutRef, experienceRef, portfolioRef, contactRef} = useContext(WebContext);
-  const {
-    handleMenuMobile,
-    isOpen,
-    closeMenu,
-    goBack,
-    goTop,
-    hideRightOpt
-  } = useHeader();
+  const { navRef, aboutRef, experienceRef, portfolioRef, contactRef } =
+    useContext(WebContext);
+  const { handleMenuMobile, isOpen, closeMenu, goBack, goTop, hideRightOpt } =
+    useHeader();
 
-  const getRefByHref = (href: typeSection)  => {
+  const getRefByHref = (href: typeSection) => {
     switch (href) {
-      case '#about':
+      case "#about":
         return aboutRef;
-      case '#experience':
+      case "#experience":
         return experienceRef;
-      case '#portfolio':
+      case "#portfolio":
         return portfolioRef;
-      case '#contact':
+      case "#contact":
         return contactRef;
-    
     }
-  }
+  };
 
   return (
     <NavBar
-      navRef={navRef}
-      goHome={!hideRightOpt?goTop:goBack}
+      ref={navRef}
+      goHome={!hideRightOpt ? goTop : goBack}
       hideRightOpt={hideRightOpt}
       onScroll={closeMenu}
       rightOptions={
-          <ul className="flex gap-2">
-            {
-              menuOptions.map(({name, href}, i)=>(
-                <li key={`opt-${i}`} className={`${hideRightOpt?'md:hidden':'md:flex'} hidden justify-center`}>
-                  <LinkButton href={href}>{name}</LinkButton>
-                </li>
-              ))
-            }
-            <li className="flex justify-center">
-              <DarkBtn/>
+        <ul className="flex gap-2">
+          {menuOptions.map(({ name, href }, i) => (
+            <li
+              key={`opt-${i}`}
+              className={`${
+                hideRightOpt ? "md:hidden" : "md:flex"
+              } hidden justify-center`}
+            >
+              <LinkButton href={href}>{name}</LinkButton>
             </li>
-            <li className={`${hideRightOpt?'hidden':'flex'} md:hidden justify-center`}>
-              <button role="menu" onClick={handleMenuMobile} aria-label="menu bar button">
-                <div id="toogle" className={isOpen?"active":""}></div>
-              </button>
-            </li>
-          </ul>
+          ))}
+          <li className="flex justify-center">
+            <DarkBtn />
+          </li>
+          <li
+            className={`${
+              hideRightOpt ? "hidden" : "flex"
+            } justify-center md:hidden`}
+          >
+            <button
+              role="menu"
+              onClick={handleMenuMobile}
+              aria-label="menu bar button"
+            >
+              <div id="toogle" className={isOpen ? "active" : ""}></div>
+            </button>
+          </li>
+        </ul>
       }
       mobileMenu={
-        <ul className={`flex flex-col gap-2 md:hidden p-5`}>
-          {
-            menuOptions.map(({href, name }, i)=>(
-              <li key={`mobile-opt-${i}`}>
-                <LinkButton
-                  className="flex justify-center hover:scale-100 active:scale-100"
-                  href={href}
-                  afterNavigate={handleMenuMobile}
-                  >
-                    {name}
-                </LinkButton>
-              </li>
-            ))
-          }
+        <ul className={`flex flex-col gap-2 p-5 md:hidden`}>
+          {menuOptions.map(({ href, name }, i) => (
+            <li key={`mobile-opt-${i}`}>
+              <LinkButton
+                className="flex justify-center active:scale-100 hover:scale-100"
+                href={href}
+                afterNavigate={handleMenuMobile}
+              >
+                {name}
+              </LinkButton>
+            </li>
+          ))}
         </ul>
       }
       isOpen={isOpen}

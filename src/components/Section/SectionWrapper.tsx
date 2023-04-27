@@ -1,5 +1,6 @@
 import { forwardRef, HtmlHTMLAttributes } from "react";
 import { NextSection } from "../LinkButton/NextSection";
+import { typeSection } from "../../models/section.model";
 
 // eslint-disable-next-line react/display-name
 export const SectionWrapper = forwardRef<
@@ -14,7 +15,10 @@ export const SectionWrapper = forwardRef<
       {...rest}
     >
       <div>{children}</div>
-      <NextSection href={id} className="sticky bottom-5 z-[5] self-center" />
+      <NextSection
+        href={id as typeSection}
+        className="sticky bottom-5 z-[5] self-center"
+      />
     </section>
   );
 });

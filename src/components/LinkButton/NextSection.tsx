@@ -10,7 +10,7 @@ export const NextSection = ({
   className: string;
   href: typeSection;
 }) => {
-  const findNextHref = (href: typeSection): string | undefined => {
+  const findNextHref = (href: typeSection): typeSection | undefined => {
     const index = Object.values(menuOptions).findIndex(
       (value) => value.href === href
     );
@@ -20,7 +20,7 @@ export const NextSection = ({
     }
   };
   const nextHref = findNextHref(href);
-  const { scrollTo } = useLinkButton({ href: nextHref });
+  const { scrollTo } = useLinkButton({ href: nextHref! });
   if (!nextHref) {
     return <></>;
   }

@@ -52,7 +52,7 @@ export function Welcome() {
         </div>
         <NextSection
           className="sticky bottom-0 z-[5] mt-auto self-center"
-          href="/#about"
+          href="#about"
         />
       </div>
     </section>

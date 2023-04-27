@@ -12,7 +12,7 @@ export const LinkButton = ({
 
   return (
     <Link
-      href={href}
+      href={`${href}`}
       role="button"
       className={`button ${className}`}
       onClick={scrollTo}
