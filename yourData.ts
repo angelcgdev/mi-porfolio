@@ -125,21 +125,21 @@ const data = {
   //   End About Section ---------------------
   // Experience --------------------
   experience: [
-    {
-      id: 3,
-      position: "Tech Coach",
-      company: "Talently",
-      range: "Febrary 2023 - Currently",
-      activities: [
-        "Mentoring 1:1 with developers of all levels.",
-        "Teach different technologies such as Javascript, TypeScript, React, flutter, Solid Principles.",
-      ],
-    },
+    // {
+    //   id: 3,
+    //   position: "Tech Coach",
+    //   company: "Talently",
+    //   range: "Febrary 2023 - Currently",
+    //   activities: [
+    //     "Mentoring 1:1 with developers of all levels.",
+    //     "Teach different technologies such as Javascript, TypeScript, React, flutter, Solid Principles.",
+    //   ],
+    // },
     {
       id: 2,
-      position: "Frontend developer",
+      position: "FullStack developer",
       company: "GRUPO EBIM",
-      range: "July 2022 - December 2022",
+      range: "July 2022 - Currently",
       activities: [
         "Improve previus implementations.",
         "Make proposals for some customers.",
