@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import data from "../data/local/yourData";
-import { Socials } from "../components";
+import { NAVBARHEIGHT, Socials } from "../components";
 import { WebContext } from "../context/web-context";
 import { NextSection } from "../components/LinkButton/NextSection";
 import Link from "next/link";
 
 export function Welcome() {
-  const { mainRef } = useContext(WebContext);
+  const { mainRef, navRef } = useContext(WebContext);
   return (
     <section
       ref={mainRef}
       id="#main"
-      className=" flex h-[calc(100dvh-64px)] max-h-[800px] min-h-[500px] flex-col items-center gap-4 pt-24"
+      className={`flex h-[calc(100dvh-${navRef.current?.offsetHeight}px)] max-h-[800px] min-h-[500px] flex-col items-center gap-4 pt-24`}
     >
       <div className="relative flex h-full flex-col justify-center gap-4">
         <div className="my-auto flex flex-col gap-1">

@@ -5,6 +5,8 @@ import { useNavBar } from "./Hooks/useNavBar";
 import { DarkBtn } from "../DarkButton/DarkButton";
 import { menuOptions } from "../../data/local/memuOptions";
 import { LinkButton } from "../LinkButton";
+
+export const NAVBARHEIGHT = 64;
 interface Props {
   goHome: () => void;
   isHome: boolean;
@@ -36,19 +38,23 @@ const MobileMainOptions = ({
 const MenuOptions = ({
   className,
   id,
+  afterNavigate,
 }: {
   className?: string;
   id?: string;
+  afterNavigate?: () => void;
 }) => {
   return (
     <ul id={id} className={`${styles["list-menu"]} ${className}`}>
       {menuOptions.map(({ name, href }, i) => (
-        <li
-          key={`opt-${id ?? ""}-${i}`}
-          className={styles["list-menu-item"]}
-          aria-details={`opt-${id ?? ""}-${i}`}
-        >
-          <LinkButton href={href}>{name}</LinkButton>
+        <li key={`opt-${id ?? ""}-${i}`}>
+          <LinkButton
+            href={href}
+            className={`${styles["list-menu-item"]} `}
+            afterNavigate={afterNavigate}
+          >
+            {name}
+          </LinkButton>
         </li>
       ))}
     </ul>
@@ -61,9 +67,7 @@ export const NavBar = forwardRef<HTMLElement, Props>(
 
     return (
       <nav
-        className={`bg-white dark:bg-black ${styles.nav} ${
-          !!className ? className : ""
-        }`}
+        className={`bg-white dark:bg-black ${styles.nav} ${className ?? ""}`}
         ref={ref}
       >
         <div className="flex h-10 items-center justify-between">
@@ -92,6 +96,7 @@ export const NavBar = forwardRef<HTMLElement, Props>(
             className={`transition-all duration-300 md:!hidden ${
               menu ? styles["open"] : ""
             }`}
+            afterNavigate={() => setMenu(false)}
           />
         ) : (
           <></>
