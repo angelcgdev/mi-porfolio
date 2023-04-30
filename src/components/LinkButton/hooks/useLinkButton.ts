@@ -52,7 +52,7 @@ export const useLinkButton = ({ href, afterNavigate }: Props) => {
         left: 0,
         behavior: "smooth",
       });
-    }, 450);
+    }, 300);
   };
 
   return { scrollTo, elementRef };
