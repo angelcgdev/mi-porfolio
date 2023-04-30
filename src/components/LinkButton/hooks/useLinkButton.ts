@@ -1,11 +1,4 @@
-import {
-  useRef,
-  useEffect,
-  useContext,
-  useCallback,
-  MutableRefObject,
-  MouseEventHandler,
-} from "react";
+import { useRef, useContext, MutableRefObject, MouseEvent } from "react";
 import { useRouter } from "next/router";
 import { WebContext } from "../../../context/web-context";
 import { typeSection } from "../../../models/section.model";
@@ -22,7 +15,6 @@ export const useLinkButton = ({ href, afterNavigate }: Props) => {
     aboutRef,
     contactRef,
     experienceRef,
-    mainRef,
     portfolioRef,
   } = useContext(WebContext);
 
@@ -45,10 +37,10 @@ export const useLinkButton = ({ href, afterNavigate }: Props) => {
   const timer = useRef<NodeJS.Timeout>();
   const { asPath, push } = useRouter();
 
-  const scrollTo = () => {
+  const scrollTo = async (e: MouseEvent<HTMLAnchorElement>) => {
     setAutoScroll(true);
-    // e.preventDefault();
-    push(href.toString(), undefined, { scroll: false });
+    e.preventDefault();
+    await push(href.toString(), undefined, { scroll: false });
     window.scrollTo({
       top:
         elementRef.current!.offsetTop ?? 0 - navRef.current!.offsetHeight ?? 0,
@@ -58,18 +50,6 @@ export const useLinkButton = ({ href, afterNavigate }: Props) => {
 
     elementRef && !!afterNavigate && afterNavigate();
   };
-
-  // const detect = useCallback(
-  //   (event) => {
-  //     if (asPath.includes(href.toString())) {
-  //       clearTimeout(timer.current);
-  //       timer.current = setTimeout(() => {
-  //         setAutoScroll(false);
-  //       }, 300);
-  //     }
-  //   },
-  //   [asPath, setAutoScroll, href]
-  // );
 
   return { scrollTo, elementRef };
 };

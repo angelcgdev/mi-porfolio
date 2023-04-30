@@ -1,38 +1,30 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export const useHeader = ()=>{
+export const useHeader = () => {
+  const [isHome, setIsHome] = useState(true);
+  const router = useRouter();
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [hideRightOpt, setHideRightOpt] =  useState(true);
-    const router = useRouter();
+  const goBack = () => {
+    router.back();
+  };
 
-    const handleMenuMobile = ()=>{
-      setIsOpen(!isOpen);
+  const goTop = () => {
+    router.push("", undefined, { scroll: false });
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    if (router.asPath.includes("/#") || router.asPath === "/") {
+      setIsHome(true);
+    } else {
+      setIsHome(false);
     }
-    
-    const goBack=()=> {
-        router.back();
-    }
+  }, [router.asPath]);
 
-    const goTop = () => {
-        router.push('', undefined, { scroll: false });
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
-      };
-
-    const closeMenu = ()=> setIsOpen(false);
-
-    useEffect(() => {
-        if(router.asPath.includes('/#') || router.asPath==='/'){
-          setHideRightOpt(false);
-        }else{
-          setHideRightOpt(true);
-        }
-      }, [router.asPath]);
-
-    return { handleMenuMobile, isOpen, closeMenu, goBack, goTop, hideRightOpt }
-}
+  return { goBack, goTop, isHome };
+};

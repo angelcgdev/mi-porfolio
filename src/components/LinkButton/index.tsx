@@ -14,7 +14,7 @@ export const LinkButton = ({
     <Link
       href={`${href}`}
       role="button"
-      className={`button ${className}`}
+      className={`button ${className ?? ""}`}
       onClick={scrollTo}
     >
       {children}
