@@ -1,4 +1,4 @@
-import data from "../../../yourData";
+import data from "../../data/local/yourData";
 import {
   InputGroup,
   SectionTitle,

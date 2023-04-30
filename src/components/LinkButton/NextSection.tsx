@@ -1,7 +1,7 @@
 import { useLinkButton } from "./hooks/useLinkButton";
 import Link from "next/link";
 import { typeSection } from "../../models/section.model";
-import { menuOptions } from "../../datSource/memuOptions";
+import { menuOptions } from "../../data/local/memuOptions";
 
 export const NextSection = ({
   className,

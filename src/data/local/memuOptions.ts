@@ -1,4 +1,4 @@
-import { typeSection } from "../models/section.model";
+import { typeSection } from "../../models/section.model";
 
 interface Path {
   href: typeSection;

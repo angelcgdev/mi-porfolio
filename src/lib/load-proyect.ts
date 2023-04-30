@@ -1,4 +1,4 @@
-import { projects } from "../../yourData";
+import { projects } from "../data/local/yourData";
 import { Project } from "../models/project.model";
 
 export async function loadProyect(slug: string) {

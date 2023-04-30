@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import data from "../../yourData";
+import data from "../data/local/yourData";
 import { Socials } from "../components";
 import { WebContext } from "../context/web-context";
 import { NextSection } from "../components/LinkButton/NextSection";

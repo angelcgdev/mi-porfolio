@@ -4,9 +4,10 @@ import { SectionTitle } from "../../components/Section/SectionTitle";
 import { LeftSide } from "../../components/Section/SectionDescription";
 import { loadProyect } from "../../lib/load-proyect";
 import Head from "next/head";
-import data, { projects } from "../../../yourData";
+import data, { projects } from "../../data/local/yourData";
 import { SectionTools } from "../../components/Section/SectionTools";
 import { Project } from "../../models/project.model";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 interface Props {
   proyect: Project;
@@ -45,21 +46,17 @@ export default function Proyect(props: Props) {
     </>
   );
 }
-export async function getStaticProps({
-  params,
-}: {
-  params: { [key: string]: any };
-}) {
-  const { slug } = params;
-  const proyect = await loadProyect(slug);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params!;
+  const proyect = await loadProyect(slug as string);
   return {
     props: {
       proyect,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = projects.map((values) => {
     const slug = values.slug;
     return { params: { slug } };
@@ -68,4 +65,4 @@ export async function getStaticPaths() {
     paths,
     fallback: true,
   };
-}
+};

@@ -5,4 +5,9 @@ module.exports = {
     domains: ["images.unsplash.com", "cdn.shopify.com"],
   },
   eslint: true,
+  compiler: {
+    removeConsole: {
+      exclude: ["error"],
+    },
+  },
 };

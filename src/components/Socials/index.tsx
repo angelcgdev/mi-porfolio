@@ -1,5 +1,5 @@
 import React from "react";
-import yourData from "../../../yourData";
+import yourData from "../../data/local/yourData";
 import Link from "next/link";
 
 interface Props {

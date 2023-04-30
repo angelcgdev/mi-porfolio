@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { projects } from "../../../../yourData";
+import { projects } from "../../../data/local/yourData";
 import { Project } from "../../../models/project.model";
 
 export default function getProyectBySlug(

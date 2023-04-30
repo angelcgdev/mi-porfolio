@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import data, { projects } from "../../yourData";
+import data, { projects } from "../data/local/yourData";
 import { SectionTitle, SectionWrapper, ProjectCard } from "../components";
 import { WebContext } from "../context/web-context";
 

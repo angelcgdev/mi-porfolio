@@ -5,7 +5,7 @@ import { LinkButton } from "../LinkButton/index";
 import { DarkBtn } from "../DarkButton/DarkButton";
 import { useHeader } from "./hooks/useHeader";
 import { typeSection } from "../../models/section.model";
-import { menuOptions } from "../../datSource/memuOptions";
+import { menuOptions } from "../../data/local/memuOptions";
 const Header = () => {
   const { navRef, aboutRef, experienceRef, portfolioRef, contactRef } =
     useContext(WebContext);

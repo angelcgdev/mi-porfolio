@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { LeftSide, SectionTitle, SectionWrapper } from "../components";
 import { WebContext } from "../context/web-context";
-import data from "../../yourData";
+import data from "../data/local/yourData";
 import { ExperienceCard } from "../components/ExperienceCard/ExperienceCard";
 
 export const Experience = () => {
