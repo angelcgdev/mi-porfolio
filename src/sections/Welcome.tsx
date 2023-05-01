@@ -11,7 +11,9 @@ export function Welcome() {
     <section
       ref={mainRef}
       id="#main"
-      className={`flex h-[calc(100dvh-${navRef.current?.offsetHeight}px)] max-h-[800px] min-h-[500px] flex-col items-center gap-4 pt-24`}
+      className={`flex h-[calc(100dvh-${
+        navRef.current?.offsetHeight ?? NAVBARHEIGHT
+      }px)] max-h-[800px] min-h-[500px] flex-col items-center gap-4 pt-24`}
     >
       <div className="relative flex h-full flex-col justify-center gap-4">
         <div className="my-auto flex flex-col gap-1">
@@ -51,7 +53,7 @@ export function Welcome() {
           </Link>
         </div>
         <NextSection
-          className="sticky bottom-0 z-[5] mt-auto self-center"
+          className="sticky bottom-5 z-[5] mt-auto self-center"
           href="#about"
         />
       </div>

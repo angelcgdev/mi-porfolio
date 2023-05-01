@@ -28,6 +28,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "rgb(var(--color-primary) / <alpha-value>)",
+        "primary-variant": "rgb(var(--color-primary-variant) / <alpha-value>)",
         secondary: "rgb(var(--color-secondary) / <alpha-value>)",
         disabled: "rgb(var(--color-disabled) / <alpha-value>)",
         borderc: "rgb(var(--color-border) / <alpha-value>)",

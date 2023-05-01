@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { WebContext } from "../../../context/web-context";
 import { typeSection } from "../../../models/section.model";
 import { setTimeout } from "timers";
-import { NAVBARHEIGHT } from "../../NavBar/NavBar";
 
 interface Props {
   href: typeSection;
@@ -44,11 +43,10 @@ export const useLinkButton = ({ href, afterNavigate }: Props) => {
 
     !!afterNavigate && afterNavigate();
     await setTimeout(() => {
+      const sectionPosition =
+        elementRef.current!.offsetTop - navRef.current!.offsetHeight;
       window.scrollTo({
-        top:
-          elementRef.current!.offsetTop - navRef.current!.offsetHeight ??
-          0 - navRef.current!.offsetHeight ??
-          0,
+        top: sectionPosition,
         left: 0,
         behavior: "smooth",
       });

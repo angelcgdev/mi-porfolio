@@ -1,30 +1,33 @@
-import React from 'react'
+import React from "react";
 
 interface Experience {
-    id: number,
-    position: string,
-    company: string,
-    range: string,
-    activities: string[]
+  id: number;
+  position: string;
+  company: string;
+  range: string;
+  activities: string[];
 }
-export const  ExperienceCard = ({ experience }:{experience: Experience}) => {
-    const { activities, company, id, position, range } = experience;
+export const ExperienceCard = ({ experience }: { experience: Experience }) => {
+  const { activities, company, id, position, range } = experience;
   return (
-    <article role="article" className='items-start text-body p-4 border-borderc border-2 rounded-md duration-300'>
+    <article
+      role="article"
+      className="text-body items-start rounded-md border-2 border-borderc p-4 duration-300"
+    >
       <div>
-        <h3 className='font-medium'>
+        <h3 className="font-medium">
           {position}
-          <span className='text-primary'> {company}</span>
+          <span className="text-primary-variant"> {company}</span>
         </h3>
-        <p className='text-sm'>{ range }</p>
+        <p className="text-sm">{range}</p>
       </div>
-      <ul aria-label="Activities" className='decorated'>
-        {
-          activities.map((activity, i)=>(<li key={`activity-${i}`}>
-            <p className='description'>{activity}</p>
-          </li>))
-        }
+      <ul aria-label="Activities" className="decorated">
+        {activities.map((activity, i) => (
+          <li key={`activity-${i}`}>
+            <p className="description">{activity}</p>
+          </li>
+        ))}
       </ul>
     </article>
-  )
-}
+  );
+};

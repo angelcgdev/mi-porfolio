@@ -6,7 +6,6 @@ import { DarkBtn } from "../DarkButton/DarkButton";
 import { menuOptions } from "../../data/local/memuOptions";
 import { LinkButton } from "../LinkButton";
 
-export const NAVBARHEIGHT = 64;
 interface Props {
   goHome: () => void;
   isHome: boolean;
@@ -20,7 +19,6 @@ const MobileMainOptions = ({
   open: boolean;
   onChange: () => void;
 }) => {
-  // const { handleMenuMobile } = useHeader();
   return (
     <ul className="flex flex-row gap-2">
       <li>
@@ -60,7 +58,7 @@ const MenuOptions = ({
     </ul>
   );
 };
-
+export const NAVBARHEIGHT = 64;
 export const NavBar = forwardRef<HTMLElement, Props>(
   ({ goHome, className, isHome }, ref) => {
     const { menu, setMenu } = useNavBar();

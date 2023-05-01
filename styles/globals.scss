@@ -59,13 +59,15 @@ body {
 @layer base {
   :root {
     --color-primary: #{30} #{64} #{175};
+    --color-primary-variant: #{30} #{64} #{175};
     --color-secondary: 107 107 248;
     --color-disabled: 229 231 235;
     --color-border: 204 214 229;
     --app-height: 100%;
   }
   :root[class="dark"] {
-    --color-primary: #{57} #{107} #{255};
+    --color-primary: #{57} #{87} #{255};
+    --color-primary-variant: #{57} #{107} #{255};
     --color-border: 31 41 55;
   }
 }
@@ -96,7 +98,7 @@ body {
 
     &.primary {
       @apply bg-primary px-6 text-white active:bg-opacity-95 hover:bg-opacity-95;
-      @apply dark:active:bg-blue-600 dark:hover:bg-blue-600;
+      @apply dark:active:bg-primary dark:active:bg-opacity-80 dark:hover:bg-primary dark:hover:bg-opacity-80;
     }
     &.inline {
       @apply w-full active:bg-slate-100 hover:bg-slate-100;

@@ -30,6 +30,7 @@ export const NextSection = ({
       role="button"
       className={`next ${className}`}
       onClick={scrollTo}
+      aria-label={`go to the section ${nextHref.slice(1, nextHref.length)}`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
