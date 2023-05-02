@@ -8,7 +8,7 @@ export const LinkButton = ({
   href,
   afterNavigate,
 }: LinkButtonProps) => {
-  const { scrollTo } = useLinkButton({ afterNavigate, href });
+  const { scrollTo } = useLinkButton({ afterNavigate });
 
   return (
     <Link
