@@ -108,33 +108,6 @@ body {
   }
 }
 
-#toogle {
-  @apply relative flex h-6 w-6 cursor-pointer items-center justify-center transition-all duration-300;
-
-  &::before {
-    content: "";
-    height: 2px;
-    transform: translateY(-6px);
-    box-shadow: 0 6px 0;
-    color: inherit;
-    @apply absolute w-4 bg-black text-black transition-all duration-300  dark:bg-white dark:text-white;
-  }
-  &.active::before {
-    transform: translateY(0) rotate(45deg);
-    box-shadow: 0 0 0 black;
-    @apply shadow-black transition-all  duration-300 dark:shadow-white;
-  }
-  &::after {
-    content: "";
-    height: 2px;
-    transform: translateY(6px);
-    @apply absolute w-4 bg-black transition-all  duration-300 dark:bg-white;
-  }
-  &.active::after {
-    @apply translate-y-0 -rotate-45  transition-all duration-300;
-  }
-}
-
 ::-webkit-scrollbar {
   @apply w-1 shadow-none transition-all duration-200 ease-out md:w-3;
 }

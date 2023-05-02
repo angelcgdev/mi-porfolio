@@ -25,7 +25,7 @@ module.exports = {
     "./src/app/sections/**/*.{js,ts,jsx,tsx,mdx}",
     // "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
+  darkMode: ["class", "[class~='dark']"],
   theme: {
     extend: {
       colors: {

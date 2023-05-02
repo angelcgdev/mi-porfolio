@@ -15,10 +15,7 @@ export const NavBar = ({ className }: Props) => {
   const { menu, setMenu, goBack, goTop, isHome } = useNavBar();
 
   return (
-    <nav
-      id="nav"
-      className={`bg-white dark:bg-black ${styles.nav} ${className ?? ""}`}
-    >
+    <nav id="nav" className={` ${styles.nav} ${className ?? ""}`}>
       <div className="flex h-10 items-center justify-between">
         <Link href="/#" onClick={isHome ? goTop : goBack}>
           <h1 className="cursor-pointer select-none font-bold">LuisCaroDev</h1>

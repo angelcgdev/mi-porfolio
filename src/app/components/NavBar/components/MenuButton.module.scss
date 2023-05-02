@@ -1,0 +1,45 @@
+.toogle {
+  transition-property: transform, box-shadow, color, background-color;
+  -webkit-transition-duration: 300ms, 300ms, 200ms, 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1),
+    cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 300ms, 300ms, 200ms, 200ms;
+  @apply relative flex h-6 w-6 cursor-pointer items-center justify-center;
+
+  &::before {
+    content: "";
+    height: 2px;
+    transform: translateY(-6px);
+    box-shadow: 0 6px 0;
+    transition-property: transform, box-shadow, color, background-color;
+    -webkit-transition-duration: 300ms, 300ms, 200ms, 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1),
+      cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 300ms, 300ms, 50ms, 200ms;
+    @apply absolute w-4 bg-black text-black  dark:bg-white dark:text-white;
+  }
+  &.active::before {
+    transform: translateY(0) rotate(45deg);
+    box-shadow: 0 0 0 black;
+    transition-property: transform, box-shadow, color, background-color;
+    -webkit-transition-duration: 300ms, 300ms, 200ms, 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1),
+      cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 300ms, 300ms, 200ms, 200ms;
+    @apply shadow-black dark:shadow-white;
+  }
+  &::after {
+    content: "";
+    height: 2px;
+    transform: translateY(6px);
+    transition-property: transform, box-shadow, color, background-color;
+    -webkit-transition-duration: 300ms, 300ms, 200ms, 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1),
+      cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 300ms, 300ms, 200ms, 200ms;
+    @apply absolute w-4 bg-black dark:bg-white;
+  }
+  &.active::after {
+    @apply translate-y-0 -rotate-45;
+  }
+}
