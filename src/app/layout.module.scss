@@ -1,0 +1,23 @@
+@mixin minimalGradient() {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  height: 5rem;
+  width: 100%;
+  opacity: 0.4;
+  filter: blur(40px);
+  background: radial-gradient(
+    circle,
+    theme("colors.secondary") 0,
+    theme("colors.primary") 100%
+  );
+}
+
+.gradient-circle {
+  top: -30px;
+  @include minimalGradient();
+}
+.gradient-circle-button {
+  bottom: -20px;
+  @include minimalGradient();
+}

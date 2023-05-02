@@ -5,9 +5,12 @@ module.exports = {
     domains: ["images.unsplash.com", "cdn.shopify.com"],
   },
   eslint: true,
+  experimental: {
+    appDir: true,
+  },
   compiler: {
-    removeConsole: {
-      exclude: ["error"],
-    },
+    // removeConsole: {
+    //   exclude: ["error"],
+    // },
   },
 };
