@@ -45,7 +45,9 @@ export default async function Page({ params }: Props) {
           <div className="px-5">
             <SectionTitle>{project!.title}</SectionTitle>
             <SectionTools tools={project!.tools} />
-            <LeftSide type="full">{project!.longDescription}</LeftSide>
+            <LeftSide type="full">
+              <p className="text-body">{project!.longDescription}</p>
+            </LeftSide>
           </div>
         </div>
       </section>

@@ -13,20 +13,6 @@ html {
 body {
   @apply bg-white transition-all duration-200 dark:bg-black;
 
-  .text-body {
-    @apply text-sm;
-  }
-  @screen md {
-    .text-body {
-      @apply text-base;
-    }
-  }
-
-  @screen lg {
-    .text-body {
-      @apply text-lg;
-    }
-  }
   > :first-child {
     position: relative;
   }
@@ -105,6 +91,23 @@ body {
 
   .description {
     @apply text-gray-700 duration-300 dark:text-slate-300;
+  }
+}
+
+@layer utilities {
+  .text-body {
+    @apply text-sm;
+  }
+  @screen md {
+    .text-body {
+      @apply text-base;
+    }
+  }
+
+  @screen lg {
+    .text-body {
+      @apply text-lg;
+    }
   }
 }
 

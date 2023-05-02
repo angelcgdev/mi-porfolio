@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProjectCard.module.scss";
 
@@ -19,22 +19,17 @@ const ProjectCard = ({ img, name, description, slug }: Props) => {
       aria-label={`Project ${name}`}
     >
       <article role="article" className={styles.wrapper}>
-        <div className="relative aspect-video w-full overflow-hidden">
+        <figure className={styles["cover-wrapper"]}>
           <Image
             alt="project cover"
-            className="bg-slate-100 object-cover transition-all duration-300 dark:bg-slate-900"
+            className={styles["cover"]}
             src={img}
-            objectFit="cover"
-            layout="fill"
+            fill={true}
           />
-        </div>
-        <div className="p-4">
-          <h3 className="text-lg font-medium  md:text-xl xl:text-2xl">
-            {name ? name : "Project Name"}
-          </h3>
-          <p className="text-body text-slate-600 dark:text-slate-300">
-            {description ? description : "Description"}
-          </p>
+        </figure>
+        <div className={styles.body}>
+          <h3 className={styles.title}>{name}</h3>
+          <p className={styles.description}>{description}</p>
         </div>
       </article>
     </Link>
