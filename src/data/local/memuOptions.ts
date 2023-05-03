@@ -6,6 +6,7 @@ interface Path {
 }
 
 export const menuOptions: Path[] = [
+  { href: "#welcome", name: "Welcome" },
   { href: "#about", name: "About" },
   { href: "#experience", name: "Experience" },
   { href: "#portfolio", name: "Portfolio" },

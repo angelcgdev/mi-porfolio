@@ -38,12 +38,14 @@ export default async function Page({ params }: Props) {
     <>
       <section>
         <div className="flex flex-col gap-4 !p-0">
-          <Image
-            src={project!.imageSrc}
-            className="!relative aspect-video object-cover"
-            alt="project cover"
-            fill={true}
-          />
+          <figure className="relative aspect-video">
+            <Image
+              src={project!.imageSrc}
+              className="  object-cover"
+              alt="project cover"
+              fill={true}
+            />
+          </figure>
           <div className="px-5">
             <SectionTitle>{project!.title}</SectionTitle>
             <SectionTools tools={project!.tools} />

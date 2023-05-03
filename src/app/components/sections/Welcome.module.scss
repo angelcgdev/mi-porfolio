@@ -1,0 +1,14 @@
+.wrapper {
+  @apply flex max-h-[800px] min-h-[500px] flex-col items-center gap-4 pt-24;
+
+  > .container {
+    @apply relative flex h-full flex-col justify-center gap-4;
+  }
+
+  .title {
+    @apply text-4xl font-bold uppercase text-primary md:text-6xl;
+  }
+  .next-position {
+    @apply sticky bottom-5 z-[5] mt-auto self-center;
+  }
+}
