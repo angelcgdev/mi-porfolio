@@ -8,9 +8,9 @@ module.exports = {
   experimental: {
     appDir: true,
   },
-  compiler: {
-    // removeConsole: {
-    //   exclude: ["error"],
-    // },
-  },
+  // compiler: {
+  // removeConsole: {
+  //   exclude: ["error"],
+  // },
+  // },
 };

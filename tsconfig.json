@@ -31,7 +31,7 @@
     "next.config.mjs",
     "test.js",
     ".next/types/**/*.ts"
-  ],
+, "src/app/test.js"  ],
   "exclude": [
     "node_modules"
   ]

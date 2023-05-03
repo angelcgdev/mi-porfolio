@@ -1,4 +1,4 @@
-@mixin minimalGradient() {
+@mixin minimal-gradient {
   position: absolute;
   pointer-events: none;
   z-index: 100;
@@ -15,9 +15,9 @@
 
 .gradient-circle {
   top: -30px;
-  @include minimalGradient();
+  @include minimal-gradient;
 }
 .gradient-circle-button {
   bottom: -20px;
-  @include minimalGradient();
+  @include minimal-gradient;
 }

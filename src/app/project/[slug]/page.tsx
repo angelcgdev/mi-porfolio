@@ -1,9 +1,8 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { SectionTitle } from "../../components/Section/SectionTitle";
 import { LeftSide } from "../../components/Section/SectionDescription";
 import { loadProyect } from "../../../lib/load-proyect";
-import { projects } from "../../../data/local/yourData";
 import { SectionTools } from "../../components/Section/SectionTools";
 import { notFound } from "next/navigation";
 
@@ -39,9 +38,12 @@ export default async function Page({ params }: Props) {
     <>
       <section>
         <div className="flex flex-col gap-4 !p-0">
-          <div className="image-container">
-            <Image src={project!.imageSrc} alt="project cover" layout="fill" />
-          </div>
+          <Image
+            src={project!.imageSrc}
+            className="!relative aspect-video object-cover"
+            alt="project cover"
+            fill={true}
+          />
           <div className="px-5">
             <SectionTitle>{project!.title}</SectionTitle>
             <SectionTools tools={project!.tools} />

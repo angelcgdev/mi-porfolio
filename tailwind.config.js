@@ -17,6 +17,14 @@ const hoverPlugin = plugin(function ({ addVariant, e, postcss }) {
   });
 });
 
+const customClass = plugin(function ({ addUtilities }) {
+  addUtilities({
+    ".text-body": {
+      "@apply text-sm md:text-base lg:text-lg": {},
+    },
+  });
+});
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -45,5 +53,5 @@ module.exports = {
       textOpacity: ["dark"],
     },
   },
-  plugins: [hoverPlugin],
+  plugins: [hoverPlugin, customClass],
 };

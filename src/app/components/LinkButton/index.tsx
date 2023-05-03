@@ -15,7 +15,6 @@ export const LinkButton = ({
       href={`${href}`}
       role="button"
       className={`button ${className ?? ""}`}
-      prefetch={false}
       onClick={scrollTo}
     >
       {children}
