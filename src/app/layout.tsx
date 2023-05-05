@@ -1,4 +1,4 @@
-import "../../styles/globals.scss";
+import "./styles/globals.scss";
 import "react-toastify/dist/ReactToastify.css";
 import { Poppins } from "next/font/google";
 import { Footer } from "./components/Footer/Footer";
@@ -40,7 +40,10 @@ export default function RootLayout({
       <body className={`${poppins.className} relative`}>
         <Providers>
           <div className={styles["gradient-circle"]}></div>
-          <NavBar />
+          <header className="sticky top-0 z-10 mt-5">
+            <NavBar />
+            <div className="h-[2px] bg-borderc transition-all duration-200" />
+          </header>
           <main>{children}</main>
           <Footer />
           <div className={styles["gradient-circle-button"]}></div>

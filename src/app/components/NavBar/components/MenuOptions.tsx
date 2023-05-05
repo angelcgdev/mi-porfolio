@@ -10,13 +10,14 @@ export const MenuOptions = ({
   id?: string;
   afterNavigate?: () => void;
 }) => {
+  const [_, ...menu] = menuOptions;
   return (
     <ul id={id} className={`${styles["list-menu"]} ${className}`}>
-      {menuOptions.map(({ name, href }, i) => (
-        <li key={`opt-${id ?? ""}-${i}`}>
+      {menu.map(({ name, href }, i) => (
+        <li key={`opt-${id ?? ""}-${i}`} className="px-1">
           <LinkButton
             href={href}
-            className={`${styles["list-menu-item"]} `}
+            className={`${styles["list-menu-item"]}`}
             afterNavigate={afterNavigate}
           >
             {name}

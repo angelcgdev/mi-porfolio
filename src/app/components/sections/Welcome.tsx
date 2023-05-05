@@ -16,7 +16,7 @@ export function Welcome() {
         <div className="my-auto flex flex-col gap-1">
           <h1 className={styles["title"]}>{data.name}</h1>
           <h2 className="description text-body">{data.role}</h2>
-          <div className="flex items-center gap-2">
+          <address className="flex items-center gap-2">
             <svg
               className="h-4 w-4 text-primary"
               fill="currentColor"
@@ -35,14 +35,14 @@ export function Welcome() {
               c-22.777,0-41.308-18.531-41.308-41.309C107.192,91.212,125.723,72.682,148.5,72.682z"
               />
             </svg>
-            <h2 className="description text-body">{data.location}</h2>
-          </div>
-          <Socials className="mt-2" />
+            <p className="description font-normal">{data.location}</p>
+          </address>
+          <Socials className="mt-4" />
           <Link
             href="/resume"
             role="button"
             aria-label="go to my resume"
-            className="button primary w-min"
+            className="button primary mt-4 w-min"
           >
             Resume
           </Link>
