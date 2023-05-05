@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { SectionTitle } from "../../components/Section/SectionTitle";
-import { LeftSide } from "../../components/Section/SectionDescription";
-import { loadProyect } from "../../../lib/load-proyect";
-import { SectionTools } from "../../components/Section/SectionTools";
+import { SectionTitle } from "../../../components/Section/SectionTitle";
+import { LeftSide } from "../../../components/Section/SectionDescription";
+import { loadProyect } from "../../../../lib/load-proyect";
+import { SectionTools } from "../../../components/Section/SectionTools";
 import { notFound } from "next/navigation";
+import type en from "../../../../dictionaries/en.json";
 
 interface Props {
-  params: { slug: string };
+  params: { slug: string; lang: typeof en };
 }
 
 export async function generateMetadata({
@@ -17,21 +18,23 @@ export async function generateMetadata({
 }) {
   const project = await loadProyect(params.slug);
   if (!project) {
-    notFound();
+    return;
   }
   return {
     title: project.title,
   };
 }
 
-async function getProject(params: string) {
-  const project = await loadProyect(params);
+async function getProject(params: Props["params"]) {
+  const project = await loadProyect(params.slug);
   return project;
 }
 export default async function Page({ params }: Props) {
-  let project = await getProject(params.slug);
+  console.log({ params });
+  let project = await getProject(params);
   if (!project) {
     notFound();
+    // return <h1>{JSON.stringify(project)}</h1>;
   }
 
   return (

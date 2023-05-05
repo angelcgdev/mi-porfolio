@@ -17,9 +17,19 @@ export const NavBar = ({ className }: Props) => {
   return (
     <nav id="nav" className={` ${styles.nav} ${className ?? ""}`}>
       <div className="flex h-10 items-center justify-between">
-        <Link href="/#" onClick={isHome ? goTop : goBack}>
-          <h1 className="cursor-pointer select-none font-bold">LuisCaroDev</h1>
-        </Link>
+        {isHome ? (
+          <button onClick={goTop} className="!scale-100 !bg-transparent p-0">
+            <h1 className="cursor-pointer select-none font-bold">
+              LuisCaroDev
+            </h1>
+          </button>
+        ) : (
+          <Link href="/#" onClick={goBack}>
+            <h1 className="cursor-pointer select-none font-bold">
+              LuisCaroDev
+            </h1>
+          </Link>
+        )}
         {isHome ? (
           <ul className="flex flex-row gap-2">
             <li>

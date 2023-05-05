@@ -5,13 +5,16 @@ import { SectionTitle } from "../../Section/SectionTitle";
 import { SectionWrapper } from "../../Section/SectionWrapper";
 import Socials from "../../Socials";
 import { useContact } from "./hooks/useContact";
+import { CommonProps } from "../Welcome";
 
-export const ContactSection = () => {
+export const ContactSection = ({ dictionary }: CommonProps) => {
   const { formik, isSending, sended } = useContact();
   return (
     <SectionWrapper id="#contact">
-      <SectionTitle>Contact me.</SectionTitle>
-      <p className="text-body description py-5">{data.contactpara}</p>
+      <SectionTitle>{dictionary.contact.title}</SectionTitle>
+      <p className="description py-5 text-body">
+        {dictionary.contact.description}
+      </p>
       <div className="grid grid-cols-1 gap-4 md:mt-5 md:grid-cols-2">
         <form
           className="flex flex-col gap-4"

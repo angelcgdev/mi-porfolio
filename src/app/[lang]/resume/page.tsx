@@ -3,7 +3,7 @@ import {
   frameworks,
   languages,
   others,
-} from "../../data/local/resumeData";
+} from "../../../data/local/resumeData";
 
 export interface Experience {
   role: string;

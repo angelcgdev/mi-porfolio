@@ -4,8 +4,11 @@ import { NextSection } from "../LinkButton/NextSection";
 import { NAVBARHEIGHT } from "../NavBar/NavBar";
 import Socials from "../Socials";
 import styles from "./Welcome.module.scss";
-
-export function Welcome() {
+import type en from "../../../dictionaries/en.json";
+export interface CommonProps {
+  dictionary: typeof en;
+}
+export function Welcome({ dictionary }: CommonProps) {
   return (
     <section
       id="#welcome"
@@ -15,7 +18,7 @@ export function Welcome() {
       <div className={styles["container"]}>
         <div className="my-auto flex flex-col gap-1">
           <h1 className={styles["title"]}>{data.name}</h1>
-          <h2 className="description text-body">{data.role}</h2>
+          <h2 className="description text-body">{dictionary.main.role}</h2>
           <div className="flex items-center gap-2">
             <svg
               className="h-4 w-4 text-primary"
@@ -42,9 +45,9 @@ export function Welcome() {
             href="/resume"
             role="button"
             aria-label="go to my resume"
-            className="button primary w-min"
+            className="button primary mt-1 w-min"
           >
-            Resume
+            {dictionary.main["btn-resume"]}
           </Link>
         </div>
         <NextSection className={styles["next-position"]} href="#welcome" />

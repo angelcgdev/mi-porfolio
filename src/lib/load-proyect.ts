@@ -1,3 +1,4 @@
+// import "server-only";
 import { projects } from "../data/local/yourData";
 import { Project } from "../models/project.model";
 

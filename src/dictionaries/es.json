@@ -1,0 +1,14 @@
+{
+    "main":{
+        "role":"Desarrollador frontend y mobile",
+        "btn-resume": "Currículum"
+    },
+    "about": {
+        "title":"Sobre mí.",
+        "description":"Peruvian Frontend Developer with +3 years of experience, I have developed and maintained web and mobile applications using JavaScript, React, flutter, Firebase, NodeJs, MySQL along with other technologies, always motivated to help the team with my knowledge and experience. I am a technology fanatic always motivated to learn new things and take on new challenges. I love discussing topics related to efficiency optimization and use of best practices. I would like to work on projects related to blockchain and intelligence."
+    },
+    "contact":{
+        "title":"Contactame.",
+        "description":"Si necesitas decirme algo, contactame."
+    }
+}

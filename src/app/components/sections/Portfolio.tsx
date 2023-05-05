@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
 import { projects } from "../../../data/local/yourData";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import { SectionWrapper, SectionTitle } from "../Section";
+import { CommonProps } from "./Welcome";
 
-export const PortfolioSection = () => {
+export const PortfolioSection = ({ dictionary }: CommonProps) => {
   return (
     <SectionWrapper id="#portfolio">
       <SectionTitle>Portfolio.</SectionTitle>

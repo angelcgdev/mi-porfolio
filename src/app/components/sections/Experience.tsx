@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
 import data from "../../../data/local/yourData";
 import { ExperienceCard } from "../ExperienceCard/ExperienceCard";
 import { SectionTitle, SectionWrapper } from "../Section";
+import { CommonProps } from "./Welcome";
 
-export const Experience = () => {
+export const Experience = ({ dictionary }: CommonProps) => {
   return (
     <SectionWrapper id="#experience">
       <SectionTitle>Where I’ve Worked.</SectionTitle>

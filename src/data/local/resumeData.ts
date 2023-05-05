@@ -1,4 +1,4 @@
-import { Experience } from "../../app/resume/page";
+import { Experience } from "../../app/[lang]/resume/page";
 
 export const experiences: Experience[] = [
   {

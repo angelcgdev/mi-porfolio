@@ -10,9 +10,10 @@ export const MenuOptions = ({
   id?: string;
   afterNavigate?: () => void;
 }) => {
+  const [dl, ...respt] = menuOptions;
   return (
     <ul id={id} className={`${styles["list-menu"]} ${className}`}>
-      {menuOptions.map(({ name, href }, i) => (
+      {respt.map(({ name, href }, i) => (
         <li key={`opt-${id ?? ""}-${i}`}>
           <LinkButton
             href={href}
