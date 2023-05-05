@@ -3,19 +3,18 @@ import data from "../../../data/local/yourData";
 import { NextSection } from "../LinkButton/NextSection";
 import { NAVBARHEIGHT } from "../NavBar/NavBar";
 import Socials from "../Socials";
+import styles from "./Welcome.module.scss";
 
 export function Welcome() {
   return (
     <section
       id="#welcome"
-      className={`flex max-h-[800px] min-h-[500px] flex-col items-center gap-4 pt-24`}
+      className={styles["wrapper"]}
       style={{ height: `calc(100dvh - ${NAVBARHEIGHT}px)` }}
     >
-      <div className="relative flex h-full flex-col justify-center gap-4">
+      <div className={styles["container"]}>
         <div className="my-auto flex flex-col gap-1">
-          <h1 className="text-4xl font-bold uppercase text-primary md:text-6xl">
-            {data.name}
-          </h1>
+          <h1 className={styles["title"]}>{data.name}</h1>
           <h2 className="description text-body">{data.role}</h2>
           <div className="flex items-center gap-2">
             <svg
@@ -48,10 +47,7 @@ export function Welcome() {
             Resume
           </Link>
         </div>
-        <NextSection
-          className="sticky bottom-5 z-[5] mt-auto self-center"
-          href="#about"
-        />
+        <NextSection className={styles["next-position"]} href="#welcome" />
       </div>
     </section>
   );

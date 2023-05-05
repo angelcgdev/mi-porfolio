@@ -1,1 +1,6 @@
-export type typeSection = "#about" | "#experience" | "#portfolio" | "#contact";
+export type typeSection =
+  | "#welcome"
+  | "#about"
+  | "#experience"
+  | "#portfolio"
+  | "#contact";

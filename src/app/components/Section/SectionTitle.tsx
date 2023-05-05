@@ -1,9 +1,6 @@
 import React, { ReactNode } from "react";
+import styles from "./Section.module.scss";
 
 export const SectionTitle = ({ children }: { children: ReactNode }) => {
-  return (
-    <h2 className="text-bold select-none text-2xl sm:text-3xl md:text-4xl">
-      {children}
-    </h2>
-  );
+  return <h2 className={`${styles["title"]}`}>{children}</h2>;
 };

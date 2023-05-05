@@ -1,23 +1,18 @@
 import { forwardRef, HtmlHTMLAttributes } from "react";
 import { typeSection } from "../../../models/section.model";
 import { NextSection } from "../LinkButton/NextSection";
-
+import styles from "./Section.module.scss";
 // eslint-disable-next-line react/display-name
 export const SectionWrapper = forwardRef<
   HTMLElement,
   HtmlHTMLAttributes<HTMLElement>
 >(({ id, children, ...rest }, ref) => {
   return (
-    <section
-      id={id}
-      ref={ref}
-      className="relative flex flex-col gap-20 pb-4 pt-4 md:pb-40"
-      {...rest}
-    >
+    <section id={id} ref={ref} className={styles["wrapper"]} {...rest}>
       <div>{children}</div>
       <NextSection
         href={id as typeSection}
-        className="sticky bottom-5 z-[5] self-center"
+        className={styles["next-position"]}
       />
     </section>
   );

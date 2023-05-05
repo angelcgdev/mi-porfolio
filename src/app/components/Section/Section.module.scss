@@ -1,0 +1,10 @@
+.wrapper {
+  @apply relative flex flex-col gap-20 pb-4 pt-4 md:pb-40;
+
+  .title {
+    @apply select-none text-2xl sm:text-3xl md:text-4xl;
+  }
+  > .next-position {
+    @apply sticky bottom-5 z-[5] self-center;
+  }
+}
