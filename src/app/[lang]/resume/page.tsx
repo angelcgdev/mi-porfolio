@@ -20,9 +20,9 @@ export const metadata = {
 const Resume = () => {
   return (
     <>
-      <section className="flex flex-col items-center justify-center gap-3">
-        <div className="p-4">
-          <div className="z-[105] box-border flex flex-col gap-2 bg-slate-200 !p-10 dark:bg-slate-900 md:!p-11">
+      <section className="-z-0 flex flex-col items-center justify-center gap-3">
+        <div className="flex flex-col gap-4 py-14">
+          <div className=" box-border flex flex-col gap-2 bg-slate-200 !p-10 dark:bg-slate-900 md:!p-11">
             <div className="flex flex-col gap-2">
               <h1 className="text-2xl font-bold md:text-3xl">Luis Caro</h1>
               <p className="mt-5 text-lg md:text-xl">
@@ -107,8 +107,8 @@ const Resume = () => {
               </div>
             </div>
           </div>
+          <button className="button primary self-start">Download</button>
         </div>
-        <button className="button primary">Download</button>
       </section>
     </>
   );

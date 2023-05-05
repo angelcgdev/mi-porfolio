@@ -4,11 +4,8 @@ import { NextSection } from "../LinkButton/NextSection";
 import { NAVBARHEIGHT } from "../NavBar/NavBar";
 import Socials from "../Socials";
 import styles from "./Welcome.module.scss";
-import type en from "../../../dictionaries/en.json";
-export interface CommonProps {
-  dictionary: typeof en;
-}
-export function Welcome({ dictionary }: CommonProps) {
+
+export function Welcome() {
   return (
     <section
       id="#welcome"
@@ -18,8 +15,8 @@ export function Welcome({ dictionary }: CommonProps) {
       <div className={styles["container"]}>
         <div className="my-auto flex flex-col gap-1">
           <h1 className={styles["title"]}>{data.name}</h1>
-          <h2 className="description text-body">{dictionary.main.role}</h2>
-          <div className="flex items-center gap-2">
+          <h2 className="description text-body">{data.role}</h2>
+          <address className="flex items-center gap-2">
             <svg
               className="h-4 w-4 text-primary"
               fill="currentColor"
@@ -38,16 +35,16 @@ export function Welcome({ dictionary }: CommonProps) {
               c-22.777,0-41.308-18.531-41.308-41.309C107.192,91.212,125.723,72.682,148.5,72.682z"
               />
             </svg>
-            <h2 className="description text-body">{data.location}</h2>
-          </div>
-          <Socials className="mt-2" />
+            <p className="description font-normal">{data.location}</p>
+          </address>
+          <Socials className="mt-4" />
           <Link
             href="/resume"
             role="button"
             aria-label="go to my resume"
-            className="button primary mt-1 w-min"
+            className="button primary mt-4 w-min"
           >
-            {dictionary.main["btn-resume"]}
+            Resume
           </Link>
         </div>
         <NextSection className={styles["next-position"]} href="#welcome" />
